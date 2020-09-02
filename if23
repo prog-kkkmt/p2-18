@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main()
+{
+int x1, y1, x2, y2, x3, y3;
+
+printf("x1:");
+scanf ("%i", &x1);
+printf("y1:");
+scanf ("%i", &y1);
+
+printf("x2:");
+scanf ("%i", &x2);
+printf("y2:");
+scanf ("%i", &y2);
+
+printf("x3:");
+scanf ("%i", &x3);
+printf("y3:");
+scanf ("%i", &y3);
+
+
+   if (x2==x3) printf("x4: %i \n",x1);
+   else if (x3==x1) printf("x4: %i \n",x2);
+   else printf("x4: %i \n",x3);
+
+   if (y2==y3) printf("y4: %i \n",y1);
+   else if (y3==y1) printf("y4: %i \n",y2);
+   else printf("y4: %i \n",y3)
+
+
+
+
+}
