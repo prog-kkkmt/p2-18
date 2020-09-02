@@ -1,17 +1,16 @@
 #include <stdio.h>
 int main(void)
 {
-   int n;
+   int n, k=0, a=3;
    printf("n=");
 
-scanf ("%i", &n); //‚‚Ó‰ n
+scanf ("%i", &n); //√¢√¢√Æ√§ n
 
-int k=0, a=3;
-   while (a<n) { // ‚‚Ó‰ËÏ ‚ ÒÚÂÔÂÌ¸
+   while (a<n) { // √¢√¢√Æ√§√®√¨ √¢ √±√≤√•√Ø√•√≠√º
         a*=3;
         ++k;
    }
-   printf("k= %i\n",k); // ‚˚‚Ó‰ k
+   printf("k= %i\n",k); // √¢√ª√¢√Æ√§ k
 
    return 0;
 }
