@@ -4,7 +4,9 @@
 """
 def Fib(N, Sch):
     Sch.append(1);
-    if N in (0, 1, 2):
+    if N == 0:
+        return 0
+    if N == 1:
         return 1
     return Fib(N - 1, Sch) + Fib(N - 2, Sch)
 Nn = int(input("сколько чисел вы хотите вывести: "))
