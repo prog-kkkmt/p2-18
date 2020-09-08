@@ -16,6 +16,10 @@ int main()
 
     printf("Enter q\n");
     scanf("%d", &q);
+    
+    if(n > 100){
+        return 1;
+    }
 
     mas[0] = b0;
 
