@@ -17,7 +17,8 @@ int main()
     printf("Enter q\n");
     scanf("%d", &q);
     
-    if(n > 100){
+    if(n > 101){
+        printf("N should be less than 101");
         return 1;
     }
 
