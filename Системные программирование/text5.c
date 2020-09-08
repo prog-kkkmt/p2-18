@@ -15,14 +15,14 @@ while(l != '\n')
 		scanf("%c", &l);
 		str[g] = l;
 		g++;
-	}// îòêðûâàåì òåêñòîâûé äîêóìåíò
+	}// Открываем текстовый файл
 file = fopen("quest5.txt", "w");
 for (int i = 0; i < g; i++)
 	{
 		fprintf(file, str[i]);
 	}
 
-file.close(); // çàêðûâàåì ôàéë
+file.close(); // Закрываем текстовый файл
 return 0;
 }
 
