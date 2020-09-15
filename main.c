@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h>  //Джабраилов и Толоконников
 #include <stdlib.h>
 int main()
 {
