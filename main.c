@@ -1,14 +1,15 @@
 #include <stdio.h>
-#include <conio.h>
 #include <stdlib.h>
-
-int main() {
-
-    FILE *file;
-
-    file = fopen("D:/file7.txt", "r");
-
-    fprintf(file, "Hello, World!");
-
-    fclose(file);
+int main()
+{
+int n, i;
+ scanf("%d",&n);
+  int*pa=(int*)malloc(sizeof (int)*n);
+   for (int i=0; i<n;++i)
+   {
+     scanf("%d",pa+i);
+   }
+     printf("min: %d", *pa);
+      free(pa);
+       return 0;
 }
