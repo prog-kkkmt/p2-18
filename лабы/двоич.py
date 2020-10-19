@@ -1,8 +1,9 @@
 text = open('четнечет.txt', 'w')
-a = list(map(int, input().split()))
-for i in range(len(a)):
- if a[i] % 2 != 0:
-  a[i] = -a[i]
-print(a)
+a = list(map(int,input().split()))
+x=0
+while len(a)>x:
+    if a[x] % 2 != 0:
+        a[x] = -a[i]
+    x+=1
 text.write(str(a))
 text.close()
