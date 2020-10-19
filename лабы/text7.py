@@ -1,0 +1,7 @@
+text = open('text7.txt', 'r')
+s = input()
+s += text.read()
+text.close()
+text = open('text7.txt', 'w')
+text.write(s)
+text.close()
