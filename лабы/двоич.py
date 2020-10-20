@@ -1,7 +1,7 @@
 text = open('четнечет.txt', 'w')
 a = list(map(int,input().split()))
 x=0
-while len(a)>x:
+while len(a)>x: #for i in range(len(a))
     if a[x] % 2 != 0:
         a[x] = -a[x]
     x+=1
