@@ -1,0 +1,4 @@
+begin 2
+if 3
+case 3
+boolean 2
