@@ -69,18 +69,25 @@ public class Main implements ActionListener{
             public void actionPerformed(ActionEvent e) {
                 JFileChooser chooser = new JFileChooser();//выбор места для файла
                 chooser.showOpenDialog(mainFrame);
-                file = chooser.getSelectedFile();// сохранить путь
-                textField.setVisible(true);//включить поле ввода
+                file = chooser.getSelectedFile();// сохранить путь до файла
+                textField.setVisible(true);//включить отображение файла
+                try(FileReader reader = new FileReader(file)){//считать файл записать в буфффер
+                    char [] buffer =  new char [(int) file.length()];
+                    reader.read(buffer);
+                    textField.setText(new String(buffer));//записать в поле
+                }catch (Exception e1){
+                    System.out.println(e1);
+                }
             }
         });
-        mainFrame.setLayout(null);//для корректного отображения
+        mainFrame.setLayout(null);
 
-        menu.add(file1);//добавления вариантов меню в меню
+        menu.add(file1);//добавление элеметов в основное окно
         menu.add(file2);
         menu.add(file3);
-        menuFileBar.add(menu);//создание бара с меню
-        mainFrame.setJMenuBar(menuFileBar);//добавление бара меню в окно
-        mainFrame.add(textField);//добавление поля ввода
+        menuFileBar.add(menu);
+        mainFrame.setJMenuBar(menuFileBar);
+        mainFrame.add(textField);
     }
 
     public static void main (String[] args) {
