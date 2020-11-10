@@ -8,6 +8,7 @@ class Main {
         double[][] price = new double[n][3];
         double answer = 0;
         double[] tmpSort = new double[3];
+        
         for (int i = 0; i < n; ++i) {
             price[i][0] = scanner.nextInt();//цена за весь
             price[i][1] = scanner.nextInt();//всего вес
@@ -33,7 +34,6 @@ class Main {
                     price[j][0] = tmpSort[0];
                     price[j][1] = tmpSort[1];
                     price[j][2] = tmpSort[2];
-
                 }
             }
         }
@@ -49,10 +49,9 @@ class Main {
 
             if(W == 0){
                 break;
-
             }
         }
-
+      
         System.out.printf("%.3f", answer);
     }
 }
