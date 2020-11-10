@@ -3,7 +3,7 @@
 #Обозначение: n!. По данному натуральному n вычислите значение n!.
 #Пользоваться математической библиотекой math в этой задаче запрещено.
 n = int(input())
-fucktorial = 1
+fktrl = 1
 for i in range(1, n + 1):
-    fucktorial *= i
-print(fucktorial)
+    fktrl *= i
+print(fktrl)
