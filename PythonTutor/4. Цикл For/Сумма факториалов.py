@@ -3,9 +3,9 @@
 #В решении этой задачи можно использовать только один цикл.
 #Пользоваться математической библиотекой math в этой задаче запрещено.
 n = int(input())
-fucktorial = 1
+fctrl = 1
 summ = 0
 for i in range(1, n + 1):
-    fucktorial *= i
-    summ += fucktorial
+    fctrl *= i
+    summ += fctrl
 print(summ)
