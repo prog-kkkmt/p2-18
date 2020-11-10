@@ -13,18 +13,13 @@ __fastcall TForm1::TForm1(TComponent* Owner)
         : TForm(Owner)
 {
 }
-  struct Library{
-char name[30];
-char book[30];
-int year;
-};
 
 void __fastcall TForm1::Button1Click(TObject *Sender){
         Edit1->Clear();
         Memo1->Clear();
 
         String File;
-        File = "C:\\Users\\Иван\\Desktop\\Library menu\\1.txt";
+        File = "1.txt";
         Memo1->Lines->LoadFromFile(File);
 }
 //---------------------------------------------------------------------------
@@ -35,7 +30,7 @@ void __fastcall TForm1::Button2Click(TObject *Sender){
 
 void __fastcall TForm1::Button3Click(TObject *Sender){
         Edit1->Text.Length();
-                AnsiString file = "C:\\Users\\Иван\\Desktop\\Library menu\\1.txt";
+                AnsiString file = "1.txt";
                 AnsiString temp = Edit1->Text;
                 TStringList *list1 = new TStringList;
 
@@ -49,7 +44,7 @@ void __fastcall TForm1::Button3Click(TObject *Sender){
         Edit1->Clear();
         Memo1->Clear();
         
-        String File = "C:\\Users\\Иван\\Desktop\\Library menu\\1.txt";
+        String File = "1.txt";
         Memo1->Lines->LoadFromFile(File);
 
        /*  AnsiString file = "C:\\Users\\Иван\\Desktop\\Library menu\\1.txt";
@@ -147,18 +142,18 @@ void __fastcall TForm1::Button4Click(TObject *Sender){
                 //удаление по полному вводу строки или все похожие компоненты!!!
          TStringList *s0 = new TStringList;
   TStringList *s1 = new TStringList;
-  s0->LoadFromFile("C:\\Users\\Иван\\Desktop\\Library menu\\1.txt");
+  s0->LoadFromFile("1.txt");
   for(int i = 0; i < s0->Count; i++)
    {
      if(s0->Strings[i].Pos(Edit1->Text)) continue;
      s1->Add(s0->Strings[i]);
    }
-  s1->SaveToFile("C:\\Users\\Иван\\Desktop\\Library menu\\1.txt");
+  s1->SaveToFile("1.txt");
   delete s0;
   delete s1;
   Edit1->Clear();
         Memo1->Clear();
-        String File = "C:\\Users\\Иван\\Desktop\\Library menu\\1.txt";
+        String File = "1.txt";
         Memo1->Lines->LoadFromFile(File); 
 }
 //---------------------------------------------------------------------------
