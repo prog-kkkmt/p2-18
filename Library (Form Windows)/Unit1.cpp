@@ -1,7 +1,7 @@
 /*****************************************************************************
 * The program was assembled -> Korolenko Ivan Romanich                       *
 *                                        Program version -> 2.6a             *
-*                                               Student -> KKКMT -> P2-18    *
+*                                               Student -> KKKM -> P2-18     *
 ******************************************************************************/
 //---------------------------------------------------------------------------
 #include <vcl.h>
@@ -13,7 +13,7 @@
 #pragma resource "*.dfm"
 TForm1 *Form1;
 //---------------------------------------------------------------------------
-//структура Library
+//Г±ГІГ°ГіГЄГІГіГ°Г  Library
 struct Library{
 	char name[30];
 	char book[30];
@@ -25,30 +25,30 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::BTExitClick(TObject *Sender){
-        exit(1);                                                 //Выход из программы с кодом 1
+        exit(1);                                                 //Г‚Г»ГµГ®Г¤ ГЁГ§ ГЇГ°Г®ГЈГ°Г Г¬Г¬Г» Г± ГЄГ®Г¤Г®Г¬ 1
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::BTShowListClick(TObject *Sender){
-        String File = "DataBase.txt";;                           //Откртие файла "DataBase.txt"
-        Memo1->Lines->LoadFromFile(File);                        //Вывод данных с файла на Memo1(Экран)
+        String File = "DataBase.txt";;                           //ГЋГІГЄГ°ГІГЁГҐ ГґГ Г©Г«Г  "DataBase.txt"
+        Memo1->Lines->LoadFromFile(File);                        //Г‚Г»ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ Г± ГґГ Г©Г«Г  Г­Г  Memo1(ГќГЄГ°Г Г­)
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TForm1::BTAddAuthorClick(TObject *Sender){
-  Edit1->Text.Length();                                          //Обработка данных с поля Edit1, переобразование в ТЕХТ
-  AnsiString file = "DataBase.txt";                              //Откртие файла "DataBase.txt"
-  AnsiString temp = Edit1->Text;                                 //Занесение данных с с поля Edit1 во веменную переменную temp
-  TStringList *List = new TStringList;                           //объявляем объект
+  Edit1->Text.Length();                                          //ГЋГЎГ°Г ГЎГ®ГІГЄГ  Г¤Г Г­Г­Г»Гµ Г± ГЇГ®Г«Гї Edit1, ГЇГҐГ°ГҐГ®ГЎГ°Г Г§Г®ГўГ Г­ГЁГҐ Гў Г’Г…Г•Г’
+  AnsiString file = "DataBase.txt";                              //ГЋГІГЄГ°ГІГЁГҐ ГґГ Г©Г«Г  "DataBase.txt"
+  AnsiString temp = Edit1->Text;                                 //Г‡Г Г­ГҐГ±ГҐГ­ГЁГҐ Г¤Г Г­Г­Г»Гµ Г± Г± ГЇГ®Г«Гї Edit1 ГўГ® ГўГҐГ¬ГҐГ­Г­ГіГѕ ГЇГҐГ°ГҐГ¬ГҐГ­Г­ГіГѕ temp
+  TStringList *List = new TStringList;                           //Г®ГЎГєГїГўГ«ГїГҐГ¬ Г®ГЎГєГҐГЄГІ
 
-        if (FileExists(file)){                                   //Проверка файла
-                List->LoadFromFile(file);                        //Запись во временную переменную данных с файла "DataBase.txt"
-                List->Add(temp);                                 //Запись данных с Edit1 (С поля для ввода) в временную переменную temp
-                List->SaveToFile(file);                          //Сохранение в конец файла новых данных
+        if (FileExists(file)){                                   //ГЏГ°Г®ГўГҐГ°ГЄГ  ГґГ Г©Г«Г 
+                List->LoadFromFile(file);                        //Г‡Г ГЇГЁГ±Гј ГўГ® ГўГ°ГҐГ¬ГҐГ­Г­ГіГѕ ГЇГҐГ°ГҐГ¬ГҐГ­Г­ГіГѕ Г¤Г Г­Г­Г»Гµ Г± ГґГ Г©Г«Г  "DataBase.txt"
+                List->Add(temp);                                 //Г‡Г ГЇГЁГ±Гј Г¤Г Г­Г­Г»Гµ Г± Edit1 (Г‘ ГЇГ®Г«Гї Г¤Г«Гї ГўГўГ®Г¤Г ) Гў ГўГ°ГҐГ¬ГҐГ­Г­ГіГѕ ГЇГҐГ°ГҐГ¬ГҐГ­Г­ГіГѕ temp
+                List->SaveToFile(file);                          //Г‘Г®ГµГ°Г Г­ГҐГ­ГЁГҐ Гў ГЄГ®Г­ГҐГ¶ ГґГ Г©Г«Г  Г­Г®ГўГ»Гµ Г¤Г Г­Г­Г»Гµ
         }
 
-  delete List;                                                   //удаление/освобождение памяти
+  delete List;                                                   //ГіГ¤Г Г«ГҐГ­ГЁГҐ/Г®Г±ГўГ®ГЎГ®Г¦Г¤ГҐГ­ГЁГҐ ГЇГ Г¬ГїГІГЁ
 
-//Очиска поля ввода и экрана, вывод на экран!
+//ГЋГ·ГЁГ±ГЄГ  ГЇГ®Г«Гї ГўГўГ®Г¤Г  ГЁ ГЅГЄГ°Г Г­Г , ГўГ»ГўГ®Г¤ Г­Г  ГЅГЄГ°Г Г­!
   Edit1->Clear();
   Memo1->Clear();
   String File = "DataBase.txt";
@@ -56,21 +56,21 @@ void __fastcall TForm1::BTAddAuthorClick(TObject *Sender){
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::BTdelauthorClick(TObject *Sender){
-//удаление по полному вводу строки или все похожие компоненты!!!
-  TStringList *words0 = new TStringList;                         //объявляем объект words0
-  TStringList *words1 = new TStringList;                         //объявляем объект words1
+//ГіГ¤Г Г«ГҐГ­ГЁГҐ ГЇГ® ГЇГ®Г«Г­Г®Г¬Гі ГўГўГ®Г¤Гі Г±ГІГ°Г®ГЄГЁ ГЁГ«ГЁ ГўГ±ГҐ ГЇГ®ГµГ®Г¦ГЁГҐ ГЄГ®Г¬ГЇГ®Г­ГҐГ­ГІГ»!!!
+  TStringList *words0 = new TStringList;                         //Г®ГЎГєГїГўГ«ГїГҐГ¬ Г®ГЎГєГҐГЄГІ words0
+  TStringList *words1 = new TStringList;                         //Г®ГЎГєГїГўГ«ГїГҐГ¬ Г®ГЎГєГҐГЄГІ words1
 
-  words0->LoadFromFile("DataBase.txt");                          //Занесение данных с файла "DataBase.txt"
-//Проверка введенных данных в поле для ввода Edit1 и сравнивание с сушествующим
+  words0->LoadFromFile("DataBase.txt");                          //Г‡Г Г­ГҐГ±ГҐГ­ГЁГҐ Г¤Г Г­Г­Г»Гµ Г± ГґГ Г©Г«Г  "DataBase.txt"
+//ГЏГ°Г®ГўГҐГ°ГЄГ  ГўГўГҐГ¤ГҐГ­Г­Г»Гµ Г¤Г Г­Г­Г»Гµ Гў ГЇГ®Г«ГҐ Г¤Г«Гї ГўГўГ®Г¤Г  Edit1 ГЁ Г±Г°Г ГўГ­ГЁГўГ Г­ГЁГҐ Г± Г±ГіГёГҐГ±ГІГўГіГѕГ№ГЁГ¬
   for(int i = 0; i < words0->Count; i++){
         if(words0->Strings[i].Pos(Edit1->Text)) continue;
         words1->Add(words0->Strings[i]);
   }
-  words1->SaveToFile("DataBase.txt");                            //Сохранение в файл исходных данных с удаленной строкой
+  words1->SaveToFile("DataBase.txt");                            //Г‘Г®ГµГ°Г Г­ГҐГ­ГЁГҐ Гў ГґГ Г©Г« ГЁГ±ГµГ®Г¤Г­Г»Гµ Г¤Г Г­Г­Г»Гµ Г± ГіГ¤Г Г«ГҐГ­Г­Г®Г© Г±ГІГ°Г®ГЄГ®Г©
 
   delete words0;
   delete words1;
-//Очиска поля ввода и экрана, вывод на экран!
+//ГЋГ·ГЁГ±ГЄГ  ГЇГ®Г«Гї ГўГўГ®Г¤Г  ГЁ ГЅГЄГ°Г Г­Г , ГўГ»ГўГ®Г¤ Г­Г  ГЅГЄГ°Г Г­!
         Edit1->Clear();
         Memo1->Clear();
         String File = "DataBase.txt";
@@ -79,24 +79,24 @@ void __fastcall TForm1::BTdelauthorClick(TObject *Sender){
 //----------------------------------------------------------------------------
 
 void __fastcall TForm1::BTsortAuthorClick(TObject *Sender){
-  auto_ptr<TStringList> L (new TStringList);                     //объявляем объект
-  L->LoadFromFile("DataBase.txt");                               //загружаем файл
-  int n = L->Count;                                              //количество строк
+  auto_ptr<TStringList> L (new TStringList);                     //Г®ГЎГєГїГўГ«ГїГҐГ¬ Г®ГЎГєГҐГЄГІ
+  L->LoadFromFile("DataBase.txt");                               //Г§Г ГЈГ°ГіГ¦Г ГҐГ¬ ГґГ Г©Г«
+  int n = L->Count;                                              //ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГІГ°Г®ГЄ
 
   int i,j;
-  struct Library *lib,temp;                                      //Обяления структуры
-  FILE *library1 = fopen("DataBase.txt","r");                    //Открытие файла для чтения
+  struct Library *lib,temp;                                      //ГЋГЎГїГ«ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г»
+  FILE *library1 = fopen("DataBase.txt","r");                    //ГЋГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Г¤Г«Гї Г·ГІГҐГ­ГЁГї
 
-        lib = (struct Library*)malloc(n*sizeof(struct Library)); //выделяет память
-//Ввод данных с файла "DataBase.txt" и запись в структуру
+        lib = (struct Library*)malloc(n*sizeof(struct Library)); //ГўГ»Г¤ГҐГ«ГїГҐГІ ГЇГ Г¬ГїГІГј
+//Г‚ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ Г± ГґГ Г©Г«Г  "DataBase.txt" ГЁ Г§Г ГЇГЁГ±Гј Гў Г±ГІГ°ГіГЄГІГіГ°Гі
         for(i=0;i<n;i++){
                 fscanf(library1,"%s",&(lib+i)->name);
                 fscanf(library1,"%s",&(lib+i)->book);
                 fscanf(library1,"%d",&(lib+i)->year);
-        } fclose(library1);                                      //закрытие файла
+        } fclose(library1);                                      //Г§Г ГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
 
-  FILE *library = fopen("DBbuff.txt","w");                       //открытие файла для записи
-//Вывод данных в файла "DBbuff.txt"
+  FILE *library = fopen("DBbuff.txt","w");                       //Г®ГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Г¤Г«Гї Г§Г ГЇГЁГ±ГЁ
+//Г‚Г»ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ Гў ГґГ Г©Г«Г  "DBbuff.txt"
         for(i=0;i<n;i++){
                 for(j=0;j<n;j++)
                         if(strcmp((lib+i)->name,lib[j].name)<0){
@@ -107,9 +107,9 @@ void __fastcall TForm1::BTsortAuthorClick(TObject *Sender){
         }
   for (i=0;i<n;i++){
         fprintf(library,"%s %s %d\n",(lib+i)->name,(lib+i)->book,(lib+i)->year);
-  }fclose(library);                                              //закрытие файла
-  free(lib);                                                     //освобождение памяти
-//Очиска поля ввода и экрана, вывод на экран!
+  }fclose(library);                                              //Г§Г ГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
+  free(lib);                                                     //Г®Г±ГўГ®ГЎГ®Г¦Г¤ГҐГ­ГЁГҐ ГЇГ Г¬ГїГІГЁ
+//ГЋГ·ГЁГ±ГЄГ  ГЇГ®Г«Гї ГўГўГ®Г¤Г  ГЁ ГЅГЄГ°Г Г­Г , ГўГ»ГўГ®Г¤ Г­Г  ГЅГЄГ°Г Г­!
         Edit1->Clear();
         Memo1->Clear();
         String File = "DBbuff.txt";
@@ -117,24 +117,24 @@ void __fastcall TForm1::BTsortAuthorClick(TObject *Sender){
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::BTsortBookClick(TObject *Sender){
-  auto_ptr<TStringList> L (new TStringList);                     //объявляем объект
-  L->LoadFromFile("DataBase.txt");                               //загружаем файл
-  int n = L->Count;                                              //количество строк
+  auto_ptr<TStringList> L (new TStringList);                     //Г®ГЎГєГїГўГ«ГїГҐГ¬ Г®ГЎГєГҐГЄГІ
+  L->LoadFromFile("DataBase.txt");                               //Г§Г ГЈГ°ГіГ¦Г ГҐГ¬ ГґГ Г©Г«
+  int n = L->Count;                                              //ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГІГ°Г®ГЄ
 
   int i,j;
-  struct Library *lib,temp;                                      //Обяления структуры
-  FILE *library1 = fopen("DataBase.txt","r");                    //Открытие файла для чтения
+  struct Library *lib,temp;                                      //ГЋГЎГїГ«ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г»
+  FILE *library1 = fopen("DataBase.txt","r");                    //ГЋГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Г¤Г«Гї Г·ГІГҐГ­ГЁГї
 
-        lib = (struct Library*)malloc(n*sizeof(struct Library)); //выделяет память
-//Ввод данных с файла "DataBase.txt" и запись в структуру
+        lib = (struct Library*)malloc(n*sizeof(struct Library)); //ГўГ»Г¤ГҐГ«ГїГҐГІ ГЇГ Г¬ГїГІГј
+//Г‚ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ Г± ГґГ Г©Г«Г  "DataBase.txt" ГЁ Г§Г ГЇГЁГ±Гј Гў Г±ГІГ°ГіГЄГІГіГ°Гі
         for(i=0;i<n;i++){
                 fscanf(library1,"%s",&(lib+i)->name);
                 fscanf(library1,"%s",&(lib+i)->book);
                 fscanf(library1,"%d",&(lib+i)->year);
-        } fclose(library1);                                      //закрытие файла
+        } fclose(library1);                                      //Г§Г ГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
 
-  FILE *library = fopen("DBbuff.txt","w");                       //открытие файла для записи
-//Вывод данных в файла "DBbuff.txt"
+  FILE *library = fopen("DBbuff.txt","w");                       //Г®ГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Г¤Г«Гї Г§Г ГЇГЁГ±ГЁ
+//Г‚Г»ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ Гў ГґГ Г©Г«Г  "DBbuff.txt"
         for(i=0;i<n;i++){
                 for(j=0;j<n;j++)
                         if(strcmp((lib+i)->book,lib[j].book)<0){
@@ -145,9 +145,9 @@ void __fastcall TForm1::BTsortBookClick(TObject *Sender){
         }
   for (i=0;i<n;i++){
         fprintf(library,"%s %s %d\n",(lib+i)->name,(lib+i)->book,(lib+i)->year);
-  }fclose(library);                                              //закрытие файла
-  free(lib);                                                     //освобождение памяти
-//Очиска поля ввода и экрана, вывод на экран!
+  }fclose(library);                                              //Г§Г ГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
+  free(lib);                                                     //Г®Г±ГўГ®ГЎГ®Г¦Г¤ГҐГ­ГЁГҐ ГЇГ Г¬ГїГІГЁ
+//ГЋГ·ГЁГ±ГЄГ  ГЇГ®Г«Гї ГўГўГ®Г¤Г  ГЁ ГЅГЄГ°Г Г­Г , ГўГ»ГўГ®Г¤ Г­Г  ГЅГЄГ°Г Г­!
         Edit1->Clear();
         Memo1->Clear();
         String File = "DBbuff.txt";
@@ -155,24 +155,24 @@ void __fastcall TForm1::BTsortBookClick(TObject *Sender){
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::BTsortYearClick(TObject *Sender){
-  auto_ptr<TStringList> L (new TStringList);                     //объявляем объект
-  L->LoadFromFile("DataBase.txt");                               //загружаем файл
-  int n = L->Count;                                              //количество строк
+  auto_ptr<TStringList> L (new TStringList);                     //Г®ГЎГєГїГўГ«ГїГҐГ¬ Г®ГЎГєГҐГЄГІ
+  L->LoadFromFile("DataBase.txt");                               //Г§Г ГЈГ°ГіГ¦Г ГҐГ¬ ГґГ Г©Г«
+  int n = L->Count;                                              //ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГІГ°Г®ГЄ
 
   int i,j;
-  struct Library *lib,temp;                                      //Обяления структуры
-  FILE *library1 = fopen("DataBase.txt","r");                    //Открытие файла для чтения
+  struct Library *lib,temp;                                      //ГЋГЎГїГ«ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г»
+  FILE *library1 = fopen("DataBase.txt","r");                    //ГЋГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Г¤Г«Гї Г·ГІГҐГ­ГЁГї
 
-        lib = (struct Library*)malloc(n*sizeof(struct Library)); //выделяет память
-//Ввод данных с файла "DataBase.txt" и запись в структуру
+        lib = (struct Library*)malloc(n*sizeof(struct Library)); //ГўГ»Г¤ГҐГ«ГїГҐГІ ГЇГ Г¬ГїГІГј
+//Г‚ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ Г± ГґГ Г©Г«Г  "DataBase.txt" ГЁ Г§Г ГЇГЁГ±Гј Гў Г±ГІГ°ГіГЄГІГіГ°Гі
         for(i=0;i<n;i++){
                 fscanf(library1,"%s",&(lib+i)->name);
                 fscanf(library1,"%s",&(lib+i)->book);
                 fscanf(library1,"%d",&(lib+i)->year);
-        } fclose(library1);                                      //закрытие файла
+        } fclose(library1);                                      //Г§Г ГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
 
-  FILE *library = fopen("DBbuff.txt","w");                       //открытие файла для записи
-//Вывод данных в файла "DBbuff.txt"
+  FILE *library = fopen("DBbuff.txt","w");                       //Г®ГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Г¤Г«Гї Г§Г ГЇГЁГ±ГЁ
+//Г‚Г»ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ Гў ГґГ Г©Г«Г  "DBbuff.txt"
         for (i=0; i<n-1;i++)
     		for (j=i+1;j<n;j++)
                         if((lib+i)->year>lib[j].year){
@@ -182,9 +182,9 @@ void __fastcall TForm1::BTsortYearClick(TObject *Sender){
                         }
   for (i=0;i<n;i++){
         fprintf(library,"%s %s %d\n",(lib+i)->name,(lib+i)->book,(lib+i)->year);
-  }fclose(library);                                              //закрытие файла
-  free(lib);                                                     //освобождение памяти
-//Очиска поля ввода и экрана, вывод на экран!
+  }fclose(library);                                              //Г§Г ГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
+  free(lib);                                                     //Г®Г±ГўГ®ГЎГ®Г¦Г¤ГҐГ­ГЁГҐ ГЇГ Г¬ГїГІГЁ
+//ГЋГ·ГЁГ±ГЄГ  ГЇГ®Г«Гї ГўГўГ®Г¤Г  ГЁ ГЅГЄГ°Г Г­Г , ГўГ»ГўГ®Г¤ Г­Г  ГЅГЄГ°Г Г­!
         Edit1->Clear();
         Memo1->Clear();
         String File = "DBbuff.txt";
@@ -192,34 +192,34 @@ void __fastcall TForm1::BTsortYearClick(TObject *Sender){
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::BTFindAuthorClick(TObject *Sender){
-  auto_ptr<TStringList> L (new TStringList);                     //объявляем объект
-  L->LoadFromFile("DataBase.txt");                               //загружаем файл
-  int n = L->Count;                                              //количество строк
+  auto_ptr<TStringList> L (new TStringList);                     //Г®ГЎГєГїГўГ«ГїГҐГ¬ Г®ГЎГєГҐГЄГІ
+  L->LoadFromFile("DataBase.txt");                               //Г§Г ГЈГ°ГіГ¦Г ГҐГ¬ ГґГ Г©Г«
+  int n = L->Count;                                              //ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГІГ°Г®ГЄ
 
   int i,j;
-  struct Library *lib,temp;                                      //Обяления структуры
-  FILE *library1 = fopen("DataBase.txt","r");                    //Открытие файла для чтения
+  struct Library *lib,temp;                                      //ГЋГЎГїГ«ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г»
+  FILE *library1 = fopen("DataBase.txt","r");                    //ГЋГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Г¤Г«Гї Г·ГІГҐГ­ГЁГї
 
-        lib = (struct Library*)malloc(n*sizeof(struct Library)); //выделяет память
-//Ввод данных с файла "DataBase.txt" и запись в структуру
+        lib = (struct Library*)malloc(n*sizeof(struct Library)); //ГўГ»Г¤ГҐГ«ГїГҐГІ ГЇГ Г¬ГїГІГј
+//Г‚ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ Г± ГґГ Г©Г«Г  "DataBase.txt" ГЁ Г§Г ГЇГЁГ±Гј Гў Г±ГІГ°ГіГЄГІГіГ°Гі
         for(i=0;i<n;i++){
                 fscanf(library1,"%s",&(lib+i)->name);
                 fscanf(library1,"%s",&(lib+i)->book);
                 fscanf(library1,"%d",&(lib+i)->year);
-        } fclose(library1);                                      //закрытие файла
+        } fclose(library1);                                      //Г§Г ГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
 
-  FILE *library = fopen("DBbuff.txt","w");                       //открытие файла для записи
+  FILE *library = fopen("DBbuff.txt","w");                       //Г®ГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Г¤Г«Гї Г§Г ГЇГЁГ±ГЁ
 
-  char *NameW = new char[Edit1->Text.Length()+1];                //Создание объекта
-  strcpy(NameW, Edit1->Text.c_str());                            //Приесвоение объекту введенный текста
+  char *NameW = new char[Edit1->Text.Length()+1];                //Г‘Г®Г§Г¤Г Г­ГЁГҐ Г®ГЎГєГҐГЄГІГ 
+  strcpy(NameW, Edit1->Text.c_str());                            //ГЏГ°ГЁГҐГ±ГўГ®ГҐГ­ГЁГҐ Г®ГЎГєГҐГЄГІГі ГўГўГҐГ¤ГҐГ­Г­Г»Г© ГІГҐГЄГ±ГІГ 
     for (i=0; i<n;i++){
         if (strcmp((lib+i)->name,NameW)==0){
                 fprintf(library,"%s %s %d\n",(lib+i)->name,(lib+i)->book,(lib+i)->year);
         }
-    }fclose(library);                                             //Закрытие файла
-   free(lib);                                                     //освобождение памяти
+    }fclose(library);                                             //Г‡Г ГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
+   free(lib);                                                     //Г®Г±ГўГ®ГЎГ®Г¦Г¤ГҐГ­ГЁГҐ ГЇГ Г¬ГїГІГЁ
 
-//Очиска поля ввода и экрана, вывод на экран!
+//ГЋГ·ГЁГ±ГЄГ  ГЇГ®Г«Гї ГўГўГ®Г¤Г  ГЁ ГЅГЄГ°Г Г­Г , ГўГ»ГўГ®Г¤ Г­Г  ГЅГЄГ°Г Г­!
         Edit1->Clear();
         Memo1->Clear();
         String File = "DBbuff.txt";
@@ -227,34 +227,34 @@ void __fastcall TForm1::BTFindAuthorClick(TObject *Sender){
 }
 //--------------------------------------------------------------------------
 void __fastcall TForm1::BTFindBookClick(TObject *Sender){
-  auto_ptr<TStringList> L (new TStringList);                     //объявляем объект
-  L->LoadFromFile("DataBase.txt");                               //загружаем файл
-  int n = L->Count;                                              //количество строк
+  auto_ptr<TStringList> L (new TStringList);                     //Г®ГЎГєГїГўГ«ГїГҐГ¬ Г®ГЎГєГҐГЄГІ
+  L->LoadFromFile("DataBase.txt");                               //Г§Г ГЈГ°ГіГ¦Г ГҐГ¬ ГґГ Г©Г«
+  int n = L->Count;                                              //ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГІГ°Г®ГЄ
 
   int i,j;
-  struct Library *lib,temp;                                      //Обяления структуры
-  FILE *library1 = fopen("DataBase.txt","r");                    //Открытие файла для чтения
+  struct Library *lib,temp;                                      //ГЋГЎГїГ«ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г»
+  FILE *library1 = fopen("DataBase.txt","r");                    //ГЋГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Г¤Г«Гї Г·ГІГҐГ­ГЁГї
 
-        lib = (struct Library*)malloc(n*sizeof(struct Library)); //выделяет память
-//Ввод данных с файла "DataBase.txt" и запись в структуру
+        lib = (struct Library*)malloc(n*sizeof(struct Library)); //ГўГ»Г¤ГҐГ«ГїГҐГІ ГЇГ Г¬ГїГІГј
+//Г‚ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ Г± ГґГ Г©Г«Г  "DataBase.txt" ГЁ Г§Г ГЇГЁГ±Гј Гў Г±ГІГ°ГіГЄГІГіГ°Гі
         for(i=0;i<n;i++){
                 fscanf(library1,"%s",&(lib+i)->name);
                 fscanf(library1,"%s",&(lib+i)->book);
                 fscanf(library1,"%d",&(lib+i)->year);
-        } fclose(library1);                                      //закрытие файла
+        } fclose(library1);                                      //Г§Г ГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
 
-  FILE *library = fopen("DBbuff.txt","w");                       //открытие файла для записи
+  FILE *library = fopen("DBbuff.txt","w");                       //Г®ГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Г¤Г«Гї Г§Г ГЇГЁГ±ГЁ
 
-  char *BookW = new char[Edit1->Text.Length()+1];                //Создание объекта
-  strcpy(BookW, Edit1->Text.c_str());                            //Приесвоение объекту введенный текст
+  char *BookW = new char[Edit1->Text.Length()+1];                //Г‘Г®Г§Г¤Г Г­ГЁГҐ Г®ГЎГєГҐГЄГІГ 
+  strcpy(BookW, Edit1->Text.c_str());                            //ГЏГ°ГЁГҐГ±ГўГ®ГҐГ­ГЁГҐ Г®ГЎГєГҐГЄГІГі ГўГўГҐГ¤ГҐГ­Г­Г»Г© ГІГҐГЄГ±ГІ
     for (i=0; i<n;i++){
         if (strcmp((lib+i)->book,BookW)==0){
                 fprintf(library,"%s %s %d\n",(lib+i)->name,(lib+i)->book,(lib+i)->year);
         }
-    }fclose(library);                                             //Закрытие файла
-   free(lib);                                                     //освобождение памяти
+    }fclose(library);                                             //Г‡Г ГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
+   free(lib);                                                     //Г®Г±ГўГ®ГЎГ®Г¦Г¤ГҐГ­ГЁГҐ ГЇГ Г¬ГїГІГЁ
 
-//Очиска поля ввода и экрана, вывод на экран!
+//ГЋГ·ГЁГ±ГЄГ  ГЇГ®Г«Гї ГўГўГ®Г¤Г  ГЁ ГЅГЄГ°Г Г­Г , ГўГ»ГўГ®Г¤ Г­Г  ГЅГЄГ°Г Г­!
         Edit1->Clear();
         Memo1->Clear();
         String File = "DBbuff.txt";
@@ -263,43 +263,43 @@ void __fastcall TForm1::BTFindBookClick(TObject *Sender){
 //---------------------------------------------------------------------------
 
  /*void __fastcall TForm1::BTFindYearClick(TObject *Sender){
-  auto_ptr<TStringList> L (new TStringList);                     //объявляем объект
-  L->LoadFromFile("DataBase.txt");                               //загружаем файл
-  int n = L->Count;                                              //количество строк
+  auto_ptr<TStringList> L (new TStringList);                     //Г®ГЎГєГїГўГ«ГїГҐГ¬ Г®ГЎГєГҐГЄГІ
+  L->LoadFromFile("DataBase.txt");                               //Г§Г ГЈГ°ГіГ¦Г ГҐГ¬ ГґГ Г©Г«
+  int n = L->Count;                                              //ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГІГ°Г®ГЄ
 
   int i,j;
-  struct Library *lib,temp;                                      //Обяления структуры
-  FILE *library1 = fopen("DataBase.txt","r");                    //Открытие файла для чтения
+  struct Library *lib,temp;                                      //ГЋГЎГїГ«ГҐГ­ГЁГї Г±ГІГ°ГіГЄГІГіГ°Г»
+  FILE *library1 = fopen("DataBase.txt","r");                    //ГЋГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Г¤Г«Гї Г·ГІГҐГ­ГЁГї
 
-        lib = (struct Library*)malloc(n*sizeof(struct Library)); //выделяет память
-//Ввод данных с файла "DataBase.txt" и запись в структуру
+        lib = (struct Library*)malloc(n*sizeof(struct Library)); //ГўГ»Г¤ГҐГ«ГїГҐГІ ГЇГ Г¬ГїГІГј
+//Г‚ГўГ®Г¤ Г¤Г Г­Г­Г»Гµ Г± ГґГ Г©Г«Г  "DataBase.txt" ГЁ Г§Г ГЇГЁГ±Гј Гў Г±ГІГ°ГіГЄГІГіГ°Гі
         for(i=0;i<n;i++){
                 fscanf(library1,"%s",&(lib+i)->name);
                 fscanf(library1,"%s",&(lib+i)->book);
                 fscanf(library1,"%d",&(lib+i)->year);
-        } fclose(library1);                                      //закрытие файла
+        } fclose(library1);                                      //Г§Г ГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
 
-  FILE *library = fopen("DBbuff.txt","w");                       //открытие файла для записи
+  FILE *library = fopen("DBbuff.txt","w");                       //Г®ГІГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г  Г¤Г«Гї Г§Г ГЇГЁГ±ГЁ
 
     /*int YearW;
     TryStrToInt(Edit1->Text, YearW);  */
 
-  /*String *YearW = new String[Edit1->Text.Length()+1];                //Создание объекта
+  /*String *YearW = new String[Edit1->Text.Length()+1];                //Г‘Г®Г§Г¤Г Г­ГЁГҐ Г®ГЎГєГҐГЄГІГ 
   strcpy(YearW, Edit1->Text.c_str());*/
   /*  for (i=0; i<n;i++){
         if (strcmp((lib+i)->year,YearW)==0){
                 fprintf(library,"%s %s %d\n",(lib+i)->name,(lib+i)->book,(lib+i)->year);
         }
-    }fclose(library);                                           //Закрытие файла
-   free(lib);                                                     //освобождение памяти
+    }fclose(library);                                           //Г‡Г ГЄГ°Г»ГІГЁГҐ ГґГ Г©Г«Г 
+   free(lib);                                                     //Г®Г±ГўГ®ГЎГ®Г¦Г¤ГҐГ­ГЁГҐ ГЇГ Г¬ГїГІГЁ
 
-//Очиска поля ввода и экрана, вывод на экран!
+//ГЋГ·ГЁГ±ГЄГ  ГЇГ®Г«Гї ГўГўГ®Г¤Г  ГЁ ГЅГЄГ°Г Г­Г , ГўГ»ГўГ®Г¤ Г­Г  ГЅГЄГ°Г Г­!
         Edit1->Clear();
         Memo1->Clear();
         String File = "DBbuff.txt";
         Memo1->Lines->LoadFromFile(File);
 }    */
-          /*  AnsiString file = "C:\\Users\\Иван\\Desktop\\Library menu\\1.txt";
+          /*  AnsiString file = "C:\\Users\\Г€ГўГ Г­\\Desktop\\Library menu\\1.txt";
         AnsiString temp ="|             " +  Edit1->Text + "|               " + Edit2->Text + "|               " +  Edit3->Text + "|"; // ???????????? ??????
         TStringList *list1 = new TStringList;
         list1->Add(temp); //  Edit1->Text + "|" + Edit2->Text
@@ -381,22 +381,22 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
         /*TStringList *lst  = new TStringList;
         TStringList *lst1 = new TStringList;
 
-        int col_sort =0;  //номер колонки для сортиовки
+        int col_sort =0;  //Г­Г®Г¬ГҐГ° ГЄГ®Г«Г®Г­ГЄГЁ Г¤Г«Гї Г±Г®Г°ГІГЁГ®ГўГЄГЁ
  
-        for(int i=1;i<StringGrid1->RowCount;++i)    //загоняем все в лист и через разделительный знак запоминаем номер строки, что бы после все передвинуть
+        for(int i=1;i<StringGrid1->RowCount;++i)    //Г§Г ГЈГ®Г­ГїГҐГ¬ ГўГ±ГҐ Гў Г«ГЁГ±ГІ ГЁ Г·ГҐГ°ГҐГ§ Г°Г Г§Г¤ГҐГ«ГЁГІГҐГ«ГјГ­Г»Г© Г§Г­Г ГЄ Г§Г ГЇГ®Г¬ГЁГ­Г ГҐГ¬ Г­Г®Г¬ГҐГ° Г±ГІГ°Г®ГЄГЁ, Г·ГІГ® ГЎГ» ГЇГ®Г±Г«ГҐ ГўГ±ГҐ ГЇГҐГ°ГҐГ¤ГўГЁГ­ГіГІГј
                 lst->Add(StringGrid1->Cells[col_sort][i]+"~"+IntToStr(i));
  
-                lst->Sort();   //Сортируем
+                lst->Sort();   //Г‘Г®Г°ГІГЁГ°ГіГҐГ¬
  
-        for(int i=0;i<StringGrid1->RowCount;++i)   //Делаем дупликат таблицы,что бы по ней после пересобрать основную
+        for(int i=0;i<StringGrid1->RowCount;++i)   //Г„ГҐГ«Г ГҐГ¬ Г¤ГіГЇГ«ГЁГЄГ ГІ ГІГ ГЎГ«ГЁГ¶Г»,Г·ГІГ® ГЎГ» ГЇГ® Г­ГҐГ© ГЇГ®Г±Г«ГҐ ГЇГҐГ°ГҐГ±Г®ГЎГ°Г ГІГј Г®Г±Г­Г®ГўГ­ГіГѕ
                 lst1->Add(StringGrid1->Rows[i]->Text);
  
-        for(int i=0;i<lst->Count;++i)     //Строим отсортированую таблицу
+        for(int i=0;i<lst->Count;++i)     //Г‘ГІГ°Г®ГЁГ¬ Г®ГІГ±Г®Г°ГІГЁГ°Г®ГўГ Г­ГіГѕ ГІГ ГЎГ«ГЁГ¶Гі
                 StringGrid1->Rows[i+1]->DelimitedText =lst1->Strings[lst->Strings[i].SubString(lst->Strings[i].Pos("~") + 1,lst->Strings[i].Length()).ToInt()]  ;
  
         delete lst,lst1;    */
 
-          /* AnsiString file_in = "C:\\Users\\Иван\\Desktop\\Library menu\\1.txt";
+          /* AnsiString file_in = "C:\\Users\\Г€ГўГ Г­\\Desktop\\Library menu\\1.txt";
 
    Edit1->Text.Length();
          AnsiString idelete = Edit1->Text;
@@ -417,25 +417,25 @@ void __fastcall TForm1::Button4Click(TObject *Sender)
  }
 
  ofstream file_out;
- file_out.open ("C:\\Users\\Иван\\Desktop\\Library menu\\1.txt",ios::trunc | ios::binary);
+ file_out.open ("C:\\Users\\Г€ГўГ Г­\\Desktop\\Library menu\\1.txt",ios::trunc | ios::binary);
  file_out.write(line_file_text.c_str(), line_file_text.size());
  file_out.clear();  */
 
 //---------------------------------------------------------------------------
-//удаление по номеру
+//ГіГ¤Г Г«ГҐГ­ГЁГҐ ГЇГ® Г­Г®Г¬ГҐГ°Гі
 /*  int number = 0;
   number = StrToInt(Edit1->Text);
 
         TStringList *List=new TStringList;
-        List->LoadFromFile("C:\\Users\\Иван\\Desktop\\Library menu\\1.txt");
+        List->LoadFromFile("C:\\Users\\Г€ГўГ Г­\\Desktop\\Library menu\\1.txt");
         List->Delete(number-1);
 
-        List->SaveToFile("C:\\Users\\Иван\\Desktop\\Library menu\\1.txt");
+        List->SaveToFile("C:\\Users\\Г€ГўГ Г­\\Desktop\\Library menu\\1.txt");
         delete List;
 
         Edit1->Clear();
         Memo1->Clear();
-        String File = "C:\\Users\\Иван\\Desktop\\Library menu\\1.txt";
+        String File = "C:\\Users\\Г€ГўГ Г­\\Desktop\\Library menu\\1.txt";
         Memo1->Lines->LoadFromFile(File);     */
 //--------------------------------------------------------------------------
 
