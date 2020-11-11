@@ -1,12 +1,12 @@
 object Form1: TForm1
-  Left = 280
-  Top = 175
+  Left = 1322
+  Top = 121
   Anchors = []
   AutoScroll = False
   BorderIcons = []
   Caption = 'Library'
-  ClientHeight = 625
-  ClientWidth = 734
+  ClientHeight = 617
+  ClientWidth = 738
   Color = clBackground
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,93 +17,102 @@ object Form1: TForm1
   Scaled = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Button1: TButton
+  object BTShowList: TButton
     Left = 40
-    Top = 8
+    Top = 0
     Width = 65
     Height = 33
     Caption = 'Show List'
     TabOrder = 0
-    OnClick = Button1Click
+    OnClick = BTShowListClick
   end
   object Memo1: TMemo
     Left = 112
-    Top = 8
+    Top = 0
     Width = 617
     Height = 585
     Color = clNone
+    Constraints.MaxHeight = 720
+    Constraints.MaxWidth = 1240
+    Constraints.MinHeight = 585
+    Constraints.MinWidth = 617
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWhite
-    Font.Height = -16
+    Font.Height = -21
     Font.Name = 'Consolas'
     Font.Style = []
     ParentFont = False
+    ScrollBars = ssVertical
     TabOrder = 1
   end
-  object Button2: TButton
+  object BTExit: TButton
     Left = 8
-    Top = 8
+    Top = 0
     Width = 25
     Height = 33
     Caption = 'X'
     TabOrder = 2
-    OnClick = Button2Click
+    OnClick = BTExitClick
   end
   object Edit1: TEdit
     Left = 112
-    Top = 600
+    Top = 592
     Width = 617
     Height = 21
     TabOrder = 3
   end
-  object Button3: TButton
+  object BTAddAuthor: TButton
     Left = 8
-    Top = 48
+    Top = 40
     Width = 97
     Height = 33
     Caption = 'Add Author'
     TabOrder = 4
-    OnClick = Button3Click
+    OnClick = BTAddAuthorClick
   end
-  object Button4: TButton
+  object BTdelauthor: TButton
     Left = 8
-    Top = 88
+    Top = 80
     Width = 97
     Height = 33
     Caption = 'Del Author'
     TabOrder = 5
-    OnClick = Button4Click
+    OnClick = BTdelauthorClick
   end
-  object Button5: TButton
+  object BTFindAuthor: TButton
     Left = 8
-    Top = 128
+    Top = 120
     Width = 97
     Height = 33
     Caption = 'Find Author'
     TabOrder = 6
+    OnClick = BTFindAuthorClick
   end
-  object Button6: TButton
+  object BTsortAuthor: TButton
     Left = 8
-    Top = 168
+    Top = 160
     Width = 97
     Height = 33
-    Caption = 'Button6'
+    Caption = 'Sort by Author'
     TabOrder = 7
+    OnClick = BTsortAuthorClick
   end
-  object Button7: TButton
+  object BTsortBook: TButton
     Left = 8
-    Top = 208
+    Top = 200
     Width = 97
     Height = 33
-    Caption = 'Button7'
+    Caption = 'BTsortBook'
     TabOrder = 8
+    OnClick = BTsortBookClick
   end
-  object Button8: TButton
+  object BTsortYear: TButton
     Left = 8
-    Top = 248
+    Top = 240
     Width = 97
     Height = 33
-    Caption = 'Button8'
+    Caption = 'BTsortYear'
     TabOrder = 9
+    OnClick = BTsortYearClick
   end
 end
