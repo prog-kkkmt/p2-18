@@ -1,13 +1,1 @@
-Pushkin Storm 1825
-Lermantov Volya 1831
-Lermantov Borodino 1837
-Block Aviator 1910
-Akhmatova Evening 1912
-Yesenin Drops 1912
-Mayakovskiy Conclusion 1922
-Mayakovskiy Spain 1925
-Slesarev c 1999
-Fobip Hyu 2000
-Korolenko c 2001
-Korolenko c++builder 2001
-Matvey Phyton 2002
+
