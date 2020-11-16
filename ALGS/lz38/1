@@ -1,0 +1,21 @@
+import java.util.Scanner;
+import java.util.Stack;
+
+class Main {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();//создание стека
+        Scanner scanner = new Scanner(System.in);//сканнер для работы с консолью 
+        String str = scanner.nextLine();//строка для записи в нее данных из консоли
+        Scanner scan = new Scanner(str);//сканнер для работы со строкой 
+
+        while (scan.hasNext()){//пока есть числа
+            stack.add(scan.nextInt());//добавить в стек
+        }
+
+        while (!stack.empty()){//пока стек не пуст 
+            System.out.print(stack.pop() + " ");// удалять последний и принтить его
+        }
+
+
+    }
+}
