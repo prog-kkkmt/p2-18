@@ -1,0 +1,12 @@
+Изучение Коллекций и их методов ArrayList и ArrayDeque - 2 часа
+Практика с коллекциями ArrayList и ArrayDeque - 2 часа
+Изучение Коллекций и их методов HashSet и LinkedList - 2 часа
+Практика с коллекциями HashSet и LinkedList - 2 часа
+Изучение коллекций SortedSet, NavigableSet, ThreeSet - 2 часа
+Практика с коллекциями SortedSet, NavigableSet, ThreeSet - 2 часа
+Изучение Compatora и практика создания сортировок Коллекций - 2 часа
+Изучение коллекций HashMap,SortedMap, NavigableMap, TreeMap - 2 часа
+Практика с коллекциями HashMap,SortedMap, NavigableMap, TreeMap - 2 часа
+Изучения итераторов и практика с ними - 2 часа
+Изучение регулярных выражений для работы со строками - 2 часа
+//11 пар
