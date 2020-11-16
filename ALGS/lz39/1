@@ -1,0 +1,59 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Queue<Integer> qu = new LinkedList<>();//общие
+        Queue<Integer> q1 = new LinkedList<>();//четные
+        Queue<Integer> q2 = new LinkedList<>();//нечетные
+
+        Scanner scanner = new Scanner(System.in);//сканнер для консоли
+        String consoleInput = scanner.nextLine();//считывает с консоли в строку
+        Scanner scan = new Scanner(consoleInput);//сканнер для работы со строкой 
+
+        while (scan.hasNext()){//пока есть числа
+            qu.add(scan.nextInt());//добавить в очередь
+        }
+
+        while (!qu.isEmpty()) {//пока очередь не пуста
+            if(qu.peek() % 2  == 0){//если первый элемент четный 
+                q1.add(qu.poll());//Добавить в четную очередь
+            }else{//если нечетный то в нечетную
+                q2.add(qu.poll());
+            }
+
+        }
+        //вывод
+        System.out.println("Четные");
+        for(Integer i : q1){
+            System.out.print(i + " ");
+        }
+
+        System.out.println("\nНечетные");
+        for(Integer i : q2){
+            System.out.print(i + " ");
+        }
+
+        System.out.println("\nМеняю местами");
+        //меняю местами используя ссылку пустую очередь
+        qu = q1;
+        q1 = q2;
+        q2 = qu;
+        
+        //вывод после переноса их обмена
+        System.out.println("\nМеняю местами");
+
+        System.out.println("Нечетные после замены");
+        for(Integer i : q1){
+            System.out.print(i + " ");
+        }
+
+        System.out.println("\nЧетные после замены");
+        for(Integer i : q2){
+            System.out.print(i + " ");
+        }
+        
+    }
+}
