@@ -1,3 +1,11 @@
+//Задание 1.
+//Вводится некоторое количество целых чисел.
+//Требуется.
+//1. Сохранить их в очереди qu
+//2. Очистить очередь, размещая выводимые числа в очередях qu1 (чётные) и qu2 (нечётные)
+//3. Поменять местами содержимое qu1 и qu2 без использования дополнительных хранилищ.
+//4. Вывести содержимое очередей
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -11,14 +19,14 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);//сканнер для консоли
         String consoleInput = scanner.nextLine();//считывает с консоли в строку
-        Scanner scan = new Scanner(consoleInput);//сканнер для работы со строкой 
+        Scanner scan = new Scanner(consoleInput);//сканнер для работы со строкой
 
         while (scan.hasNext()){//пока есть числа
             qu.add(scan.nextInt());//добавить в очередь
         }
 
         while (!qu.isEmpty()) {//пока очередь не пуста
-            if(qu.peek() % 2  == 0){//если первый элемент четный 
+            if(qu.peek() % 2  == 0){//если первый элемент четный
                 q1.add(qu.poll());//Добавить в четную очередь
             }else{//если нечетный то в нечетную
                 q2.add(qu.poll());
@@ -38,13 +46,17 @@ public class Main {
 
         System.out.println("\nМеняю местами");
         //меняю местами используя ссылку пустую очередь
-        qu = q1;
-        q1 = q2;
-        q2 = qu;
-        
-        //вывод после переноса их обмена
-        System.out.println("\nМеняю местами");
 
+        while (!q2.isEmpty()){//пока 2 не пустая
+            q1.add(q2.poll()); //добавить все из 2 очереди в 1 очередь
+        }
+
+        while (q1.peek() % 2 == 0){ // так как известно что элементы первой очереди были четные, то пока первый элемент
+            //четный добавлять его во вторую очередь
+            q2.add(q1.poll());
+        }
+
+        //вывод после переноса их обмена
         System.out.println("Нечетные после замены");
         for(Integer i : q1){
             System.out.print(i + " ");
@@ -54,6 +66,5 @@ public class Main {
         for(Integer i : q2){
             System.out.print(i + " ");
         }
-        
     }
 }
