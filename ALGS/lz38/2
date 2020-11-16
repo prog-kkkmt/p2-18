@@ -1,0 +1,69 @@
+//Задача 2.
+//Калькулятор на обратной польской записи.
+//Калькулятор обрабатывает целые положительные числа
+//Знаки операций закодированы в виде отрицательных чисел.
+//+ -1
+//* -2
+//- -3
+/// -4
+//Например, 2 + 2 в нашем калькуляторе записывается как 2 2 -1
+//Положительное число - в стек. Отрицательное число - pop pop push
+//Чтобы записать (2 + 2) * 3
+//Пример
+//Ввод 2 2 + 3 *
+//Ввод 2 2 -1 3 -2
+//Вывод 12
+
+
+
+import java.rmi.server.ExportException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        int answer = 0;
+        Scanner consoleScanner = new Scanner(System.in);//ввод с консоли
+        String consoleInput = consoleScanner.nextLine(); //строка с консоли
+        Scanner stringScanner = new Scanner(consoleInput);//сканнер для работы с консолью
+        ArrayList<Integer> list = new ArrayList<Integer>();//все числа хранятся тут
+        while (stringScanner.hasNextInt()){//добавляет числа с консоли в коллекцию
+            list.add(stringScanner.nextInt());
+        }
+        //делает первую операцию
+            switch (list.get(2)){
+                case (-1):
+                    answer = list.get(1) + list.get(0);
+                    break;
+                case(-2):
+                    answer = list.get(1) * list.get(0);
+                    break;
+                case(-3):
+                    answer = list.get(1) - list.get(0);
+                    break;
+                case(-4):
+                    answer = list.get(1) / list.get(0);
+                    break;
+            }
+
+        //дальше находит ключи для кейсов, и делает необходимое действие
+        for(int i = 3; i < list.size();i++){
+            switch (list.get(i)){
+                case (-1):
+                    answer += list.get(i - 1);
+                    break;
+                case(-2):
+                    answer *= list.get(i - 1);
+                    break;
+                case(-3):
+                    answer -= list.get(i - 1);
+                    break;
+                case(-4):
+                    answer /= list.get(i - 1);
+                    break;
+            }
+        }
+        //Вывод
+        System.out.print("result = " + answer);
+    }
+}
