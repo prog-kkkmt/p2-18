@@ -1,0 +1,2 @@
+max vivor = 7.62
+min vibor = 7.62
