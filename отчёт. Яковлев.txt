@@ -1,0 +1,27 @@
+Яковлев П2-18
+
+
+begin  +
+if +
+switch -
+integer -
+boolean -
+for +
+while +
+proc -
+array +
+matrix + -
+minmax -
+string -
+text -
+file + -
+recur-
+param - 
+
+Stepik
+
+Основы программирования на С 37/271
+
+Программирование на Phyton 36/100
+
+Введение в Архитектуру ЭВМ.  19/123
