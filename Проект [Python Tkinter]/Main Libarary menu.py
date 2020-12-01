@@ -47,7 +47,8 @@ class Example(Frame):
  
         self.txt = Text(self)
         self.txt.pack(fill=BOTH, expand=1)
- 
+        
+    #Функция открытия файла
     def onOpen(self):
         ftypes = [('Python файлы', '*.py'), ('Текстовые файлы', '.txt'), ('Все файлы', '*')]
         dlg = filedialog.Open(self, filetypes = ftypes)
@@ -56,7 +57,8 @@ class Example(Frame):
         if fl != '':
             text = self.readFile(fl)
             self.txt.insert(END, text)
- 
+            
+    #Функция чтения и вывода информации
     def readFile(self, filename):
         with open(filename, "r") as f:
             text = f.read()
