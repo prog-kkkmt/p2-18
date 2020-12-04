@@ -1,0 +1,44 @@
+УП.01 Учебная практика по модулю ПМ.01
+Консультация 15. Техника работы с модулями
+15-3.
+Составитель: Гусятинер Л.Б., 3.12.2020, МГОТУ ККМТ, П1-18, П2-18
+Модуль sys в Python.
+https://docs-python.ru/standart-library/modul-sys-python/
+
+Задание 1. Функция argv модуля sys в Python.
+https://docs-python.ru/standart-library/modul-sys-python/funktsija-argv-modulja-sys/
+
+Задание 2. Имя используемой OS.
+https://docs-python.ru/standart-library/modul-sys-python/imja-ispolzuemoj-os/
+
+Задание 3. Различные сведения о версии Python.
+https://docs-python.ru/standart-library/modul-sys-python/razlichnye-svedenija-versii/
+
+Задание 4. Каталоги и пути интерпретатора Python.
+https://docs-python.ru/standart-library/modul-sys-python/katalogi-puti-interpretatora/
+
+Задание 5. Объекты stdin, stdout, stderr модуля sys в Python.
+https://docs-python.ru/standart-library/modul-sys-python/obekty-stdin-stdout-stderr-modulja-sys/
+
+Задание 6. Функция exit() модуля sys в Python.
+https://docs-python.ru/standart-library/modul-sys-python/funktsija-exit-modulja-sys/
+
+По приведённым примерам подготовить свои.
+
+Ожидаемый результат
+1. Отчёт о выполнении работы, включая приложенные файлы
+
+Материалы.
+
+1. Стандартная библиотека Python3
+https://docs-python.ru/standart-library/
+
+2. A Byte of Python (Russian). Версия 2.02. Swaroop C H (Перевод: Владимир Смоляр)
+26 апреля 2020
+http://wombat.org.ua/AByteOfPython
+
+3. Интерактивный учебник языка Питон
+https://pythontutor.ru
+
+4. Введение в Python (7-8 классы). Алексей Зотов, Леонид Безвершенко
+https://stepik.org/course/31182
