@@ -19,7 +19,7 @@ void rotate(int a[], unsigned size, int shift){
 
 int main (){	
 	int size, shift;	
-	cout << "Input [size] i [shift]" << endl;	
+	cout << "Input [size] and [shift]" << endl;	
 	cin >> size >> shift;	
 	int a[size];	
 	for (int i = 0; i < size; i++)	
