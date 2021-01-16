@@ -1,0 +1,14 @@
+CC=g++
+CFLAGS=-c -Wall
+LDFLAGS=
+SOURCES=main.cpp Filling.cpp Max.cpp Sum.cpp Printing.cpp functions.h
+OBJECTS=$(SOURCES:.cpp=.o)
+EXECUTABLE=5
+
+all: $(SOURCES) $(EXECUTABLE)
+	
+$(EXECUTABLE): $(OBJECTS) 
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+
+.cpp.o:
+	$(CC) $(CFLAGS) $< -o $@
