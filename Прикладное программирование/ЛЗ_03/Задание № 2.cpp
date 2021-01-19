@@ -1,8 +1,19 @@
-//https://stepik.org/lesson/????-??????-538/step/9?unit=861
-int gcd (int a, int b)
-{
-    if(b == 0)
-         return a;
-    else
-         return gcd (b, a % b);
+//https://stepik.org/lesson/Стек-вызовов-538/step/9?unit=861
+/*
+В коде программы определена следующая функция:
+
+int foo(int n) {
+    if (n <= 0)
+        return 1;
+    return foo((n * 2) / 3) + foo(n - 2);
 }
+Нужно посчитать, сколько всего раз будет вызвана функция foo, если ее вызвать с аргументом 3 (т.е. foo(3)). Самый первый вызов тоже нужно посчитать. 
+*/
+int foo(int n) 
+    {
+    if (n <= 0)
+        return 1;
+    return foo((n * 2) / 3) + foo(n - 2);
+    }
+
+// Функция foo будет вызвана 9 раз
