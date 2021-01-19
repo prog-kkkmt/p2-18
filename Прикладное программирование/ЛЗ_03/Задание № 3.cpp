@@ -19,9 +19,9 @@ Sample Output:
 using namespace std;  
 void rec()
 {
-    int a=0;
+    int a = 0;
     cin >> a;
-    if ( a ==0 ) return;
+    if ( a == 0 ) return;
     rec();
     cout << a << " ";    
 } 
