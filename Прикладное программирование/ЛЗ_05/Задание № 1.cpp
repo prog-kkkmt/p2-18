@@ -7,12 +7,8 @@
 */
 unsigned strlen(const char *str)
 {
-    if (str == 0) return 0; 
-    unsigned len = 0;
-    while (*str != '\0')
-    {
+    int len = 0;
+    for(int i = 0; str[i] != '\0'; i++)
         len++;
-        str++;
-    }
     return len;
 }
