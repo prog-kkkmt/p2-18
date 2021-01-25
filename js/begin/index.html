@@ -1,4 +1,4 @@
-<canvas id="myCanvas" width="480" height="320"></canvas>
+<center><p style="margin-top: 250px; border:3px #000000  solid; width:480; height:320;"><canvas id="myCanvas" width="480" height="320"></canvas></p></center>
 <script>
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
@@ -7,6 +7,7 @@ var x = canvas.width/2;
 var y = canvas.height-30;
 var dx = 2;
 var dy = -2;
+var vkl = 0;
 
 function drawBall() {
     ctx.beginPath();
@@ -19,39 +20,52 @@ function drawBall() {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawBall();
-    
-    if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+	
+	if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
     if(y + dy > canvas.height-ballRadius || y + dy < ballRadius) {
         dy = -dy;
     }
-    
-    x += dx;
+
+	x += dx;
     y += dy;
+
 }
 
-setInterval(draw, 10);
+draw();
+
 </script>
-<button id='startButton'>Старт</button>
-<button id='stopButton'>Стоп</button>
+
+<center><button id='startButton'>Старт</button>
+<button id='stopButton'>Стоп</button></center>
 
 <script>
 const newButton = document.getElementById('startButton');
 
-function drawBall() {
-    ctx.beginPath();
-    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-    ctx.fillStyle = "#020000";
-    ctx.fill();
-    ctx.closePath();
+function ballmotion1() {
+    if (vkl == 0) {
+	motion = setInterval(draw, 10);
+	vkl += 1
+	} else {
+	alert( 'Шарик уже двигается' );
+	}
 }
 
-newButton.addEventListener('click', drawBall);
+newButton.addEventListener('click', ballmotion1);
 </script>
 
 <script>
-const newButton = document.getElementById('stopButton');
+const newwButton = document.getElementById('stopButton');
 
-newButton.addEventListener('click', ctx.fillStyle = "#000020");
+function ballmotion2() {
+    if (vkl == 1){
+	clearInterval(motion);
+	vkl -= 1;
+	} else {
+	alert( 'Шарик не двигается, нажмите старт' );
+	}
+}
+
+newwButton.addEventListener('click', ballmotion2);
 </script>
