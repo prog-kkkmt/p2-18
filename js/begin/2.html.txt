@@ -1,0 +1,17 @@
+// Дана сторона квадрата a. Найти его площадь S = a2.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+"use strict"
+
+let a = prompt("Введите ширину", "");
+let b = prompt("Введите длинну", "");
+alert( b * a );
+</script>
+
+
+</body>
+</html>

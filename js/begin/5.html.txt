@@ -1,0 +1,18 @@
+// Дана длина ребра куба a. Найти объем куба V = a3 и площадь его поверхности S = 6·a2.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+"use strict"
+
+let a = prompt("Введите длинну ребра", "");
+
+alert(`V = ${a ** 3}` );
+alert(`S = ${6 * (a ** 2)}` );
+</script>
+
+
+</body>
+</html>

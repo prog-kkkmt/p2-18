@@ -1,0 +1,19 @@
+// Даны стороны прямоугольника a и b. Найти его площадь S = a·b и периметр P = 2·(a + b).
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+"use strict"
+
+let a = prompt("Введите ширину", "");
+let b = prompt("Введите длинну", "");
+
+alert(`P = ${(+a + +b) * 2}` );
+alert(`S = ${a * b}` );
+</script>
+
+
+</body>
+</html>
