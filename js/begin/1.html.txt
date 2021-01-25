@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+"use strict"
+
+let a = prompt("Введите сторону квадрата", "");
+alert( 4 * a );
+</script>
+
+
+</body>
+</html>
