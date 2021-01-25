@@ -11,10 +11,22 @@ int foo(int n) {
 */
 #include <iostream>
 using namespace std;
+int i = 0;
 int foo(int n) 
-    {
+{
+    i++;
     if (n <= 0)
         return 1;
-    return foo((n * 2) / 3) + foo(n - 2);
-    }
+     foo((n * 2) / 3) + foo(n - 2);
+     
+      return i;
+}
+
+int main() 
+{
+    int a;
+    cin >> a;
+    cout << foo(a);
+    return 0;
+}
 // Функция foo будет вызвана 9 раз
