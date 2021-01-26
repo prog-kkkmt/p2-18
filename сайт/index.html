@@ -1,0 +1,41 @@
+<!DOCTYPE html5>
+<html>
+<head>
+    <title>Сайт</title>
+    <script src="jquery-2.1.1.min.js"></script>
+</head>
+<body>
+            <center><li class="navigation-item"><a href="#" id="menu-item-1">1</a></li>
+            <li class="navigation-item"><a href="#" id="menu-item-2">2</a></li>
+            <li class="navigation-item"><a href="#" id="menu-item-3">3</a></li></center>
+			<script>
+			$(function(){
+    var $menu_item1 = $('#menu-item-1'),
+        $menu_item2 = $('#menu-item-2'),
+        $menu_item3 = $('#menu-item-3'),
+        $content = $('#dynamic');
+		$back = $('#dynamic');
+ 
+    function goBack() {
+    window.history.back();
+    }
+	$menu_item1.click(function(){
+        $content.text("Влади́мир Влади́мирович Пу́тин (род. 7 октября 1952, Ленинград, СССР) — российский государственный и политический деятель, действующий президент Российской Федерации и верховный главнокомандующий Вооружёнными силами Российской Федерации с 7 мая 2012");
+    });
+ 
+    $menu_item2.click(function(){
+        $content.text("Карьера до прихода в правительство");
+    });
+ 
+    $menu_item3.click(function(){
+        $content.text("Работа в Санкт-Петербурге");
+    });
+});
+
+            </script>
+        </ul>
+    </div>
+    <div class="content" id="dynamic">Влади́мир Влади́мирович Пу́тин (род. 7 октября 1952, Ленинград, СССР) — российский государственный и политический деятель, действующий президент Российской Федерации и верховный главнокомандующий Вооружёнными силами Российской Федерации с 7 мая 2012 </div>
+</div>
+</body>
+</html>
