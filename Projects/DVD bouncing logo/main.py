@@ -41,7 +41,7 @@ while cycle:
         logoRect = logoRect.move(logoSpeed)
         random_logo = rnd.choice(logos)  # Замена логотипа
     # В случае, если попадет в какой-либо УГОЛ - закроется
-    if logoRect.left < 0 or logoRect.right > width or logoRect.top < 0 and logoRect.bottom > height:
+    if logoRect.left < 0 and logoRect.right > width or logoRect.top < 0 and logoRect.bottom > height:
         random_logo = secret_logo
         cycle = False
         print("Конец...")
