@@ -17,11 +17,37 @@ __fastcall TTE::TTE(TComponent* Owner)
 
 void __fastcall TTE::FormResize(TObject *Sender)
 {
+        TE->DoubleBuffered = true;
 	MText->Height=TE->Height/2;
         MText->Width=TE->Width/2;
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TTE::CopyClick(TObject *Sender)
+{
+        MText->CopyToClipboard();
+        if(Clipboard()->HasFormat(CF_TEXT)){ Paste->Enabled = true; }
+        else{ Paste->Enabled = false; }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TTE::PasteClick(TObject *Sender)
+{
+        MText->PasteFromClipboard();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TTE::ClearClick(TObject *Sender)
+{
+        MText->CutToClipboard();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TTE::BackClick(TObject *Sender)
+{
+        MText->Undo();
+}
+//---------------------------------------------------------------------------
 
 void __fastcall TTE::OpenClick(TObject *Sender)
 {
@@ -62,7 +88,6 @@ void __fastcall TTE::font1Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-
 void __fastcall TTE::SaveClick(TObject *Sender)
 {
         MText->Lines->SaveToFile(FWayName+FName);
@@ -81,6 +106,7 @@ void __fastcall TTE::SaveAsClick(TObject *Sender)
 
 void __fastcall TTE::WordWrapClick(TObject *Sender)
 {
+        TE->DoubleBuffered = true;
 	if(WordWrap->Checked == true){
 		MText->WordWrap = false;
 		WordWrap->Checked = false;
@@ -91,25 +117,7 @@ void __fastcall TTE::WordWrapClick(TObject *Sender)
 		MText->ScrollBars = ssVertical;
 	 }
 }
-//---------------------------------------------------------------------------
-void __fastcall TTE::TTEClose(TObject *Sender, TCloseAction &Action)
-{
-        Clipboard()->Clear();
 
-	/*if (FWay == "\0" && MessageDlg("Вы хотите сохранить данные?",
-            mtConfirmation  , TMsgDlgButtons() << mbNo << mbYes << mbCancel, 0) == mrYes){
-		if(MText->Lines->Count > 0 && SaveFile->Execute()){
-			MText->Lines->SaveToFile(SaveFile->FileName);
-		}
-	}else{
-		if (MessageDlg("Вы хотите сохранить изменения в файле " + FWay + "\\" + FName,
-            mtConfirmation  , TMsgDlgButtons() << mbNo << mbYes << mbCancel, 0) == mrYes){
-			if(MText->Lines->Count>0 && SaveFile->Execute()){
-				MText->Lines->SaveToFile(SaveFile->FileName);
-			}
-		}
-     }*/
-}
 //---------------------------------------------------------------------------
 
 void __fastcall TTE::to_EnlargeClick(TObject *Sender)
@@ -144,46 +152,41 @@ void __fastcall TTE::Status_barClick(TObject *Sender)
         Size_Font->Visible = false;
         Status_bar->Checked = false;
         Way->Visible = false;
-        if(TE->Height == Screen->Height){
-        MText->Height = Screen->Height;}
+        MText->Height = TE->Height - 60;
     }else{
         PosXY->Visible = true;
         Size_Font->Visible = true;
         Status_bar->Checked = true;
-        if(TE->Height == Screen->Height){
-        MText->Height = Screen->Height;}
+        Way->Visible = true;
+        MText->Height = TE->Height - 75;
      }
 }
 //---------------------------------------------------------------------------
 
 void __fastcall TTE::ExitClick(TObject *Sender)
 {
+        Clipboard()->Clear();
         Close();
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TTE::CopyClick(TObject *Sender)
+void __fastcall TTE::TTEClose(TObject *Sender, TCloseAction &Action)
 {
-        MText->CopyToClipboard();
-}
-//---------------------------------------------------------------------------
+        Clipboard()->Clear();
 
-void __fastcall TTE::VstavitClick(TObject *Sender)
-{
-    MText->PasteFromClipboard();
-}
-//---------------------------------------------------------------------------
-
-void __fastcall TTE::ClearClick(TObject *Sender)
-{
-        MText->CutToClipboard();
+        if(FName == "\0" && MText->Lines->Count > 0 && MessageDlg("Вы хотите сохранить данные?",
+            mtConfirmation  , TMsgDlgButtons() << mbNo << mbYes, 0) == mrYes && SaveFile->Execute()){
+			MText->Lines->SaveToFile(SaveFile->FileName);
+        }else if(FName != "\0" && MText->Lines->Count > 0 && MessageDlg("Вы хотите сохранить изменения в файле " + FWay + "\\" + FName,
+                        mtConfirmation  , TMsgDlgButtons() << mbNo << mbYes, 0) == mrYes){
+                        MText->Lines->SaveToFile(FWayName+FName);
+         }
 }
 //---------------------------------------------------------------------------
 
 
-void __fastcall TTE::BackClick(TObject *Sender)
-{
-        MText->Undo();        
-}
-//---------------------------------------------------------------------------
+
+
+
+
 

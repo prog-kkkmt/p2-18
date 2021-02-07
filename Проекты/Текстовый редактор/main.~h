@@ -33,7 +33,7 @@ __published:	// IDE-managed Components
         TMenuItem *Scale;
         TMenuItem *Clear;
         TMenuItem *Copy;
-        TMenuItem *Vstavit;
+        TMenuItem *Paste;
         TMenuItem *Del;
         TMenuItem *help;
         TMenuItem *N12;
@@ -46,7 +46,6 @@ __published:	// IDE-managed Components
         TLabel *Size_Font;
         TMemo *MText;
         TLabel *Way;
-        TMenuItem *N1;
         TMenuItem *Exit;
         TMenuItem *N2;
         void __fastcall OpenClick(TObject *Sender);
@@ -63,7 +62,7 @@ __published:	// IDE-managed Components
         void __fastcall Status_barClick(TObject *Sender);
         void __fastcall ExitClick(TObject *Sender);
         void __fastcall CopyClick(TObject *Sender);
-        void __fastcall VstavitClick(TObject *Sender);
+        void __fastcall PasteClick(TObject *Sender);
         void __fastcall ClearClick(TObject *Sender);
         void __fastcall BackClick(TObject *Sender);
         void __fastcall FormResize(TObject *Sender);
