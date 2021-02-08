@@ -1,0 +1,38 @@
+{
+Математические подпрограммы
+function Abs(x: число): число; Возвращает модуль числа x 
+function ArcCos(x: real): real; Возвращает арккосинус числа x 
+function ArcSin(x: real): real; Возвращает арксинус числа x 
+function ArcTan(x: real): real; Возвращает арктангенс числа x 
+function Ceil(x: real): integer; Возвращает наименьшее целое >= x 
+function Cos(x: real): real; Возвращает косинус числа x 
+function DegToRad(x: real): real; Переводит градусы в радианы 
+function Exp(x: real): real; Возвращает экспоненту числа x 
+function Floor(x: real): integer; Возвращает наибольшее целое <= x 
+function Frac(x: real): real; Возвращает дробную часть числа x 
+function Int(x: real): real; Возвращает целую часть числа x 
+function Ln(x: real): real; Возвращает натуральный логарифм числа x 
+function Log(x: real): real; Возвращает натуральный логарифм числа x 
+function Log10(x: real): real; Возвращает десятичный логарифм числа x 
+function Log2(x: real): real; Возвращает логарифм числа x по основанию 2 
+function LogN(base, x: real): real; Возвращает логарифм числа x по основанию base 
+function Odd(i: целое): boolean; Возвращает True, если i нечетно, и False в противном случае 
+function Power(x, y: real): real; Возвращает x в степени y 
+function Power(x, y: integer): real; Возвращает x в степени y 
+function RadToDeg(x: real): real; Переводит радианы в градусы 
+function Random(maxValue: integer): integer; Возвращает случайное целое в диапазоне от 0 до maxValue-1 
+function Random(a, b: integer): integer; Возвращает случайное целое в диапазоне от a до b 
+function Random: real; Возвращает случайное вещественное в диапазоне [0..1) 
+procedure Randomize(seed: integer); Инициализирует датчик псевдослучайных чисел, используя значение seed. При одном и том же seed генерируются одинаковые псевдослучайные последовательности 
+procedure Randomize; Инициализирует датчик псевдослучайных чисел 
+function Round(x: real): integer; Возвращает x, округленное до ближайшего целого. Если вещественное находится посередине между двумя целыми,то округление осуществляется к ближайшему четному (банковское округление): Round(2.5)=2, Round(3.5)=4 
+function Sign(x: число): число; Возвращает знак числа x 
+function Sin(x: real): real; Возвращает синус числа x 
+function Sqr(x: число): число; Возвращает квадрат числа x 
+function Sqrt(x: real): real; Возвращает квадратный корень числа x 
+function Tan(x: real): real; Возвращает тангенс числа x 
+function Trunc(x: real): integer; Возвращает целую часть вещественного числа x 
+ord(x) Возвращает код char x
+chr(x) Возвращает символ integer x
+length(x) Возвращает длинну string x
+}
