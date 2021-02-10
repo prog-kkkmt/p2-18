@@ -1,0 +1,12 @@
+{Даны два целых числа A и B (A < B).
+Найти сумму всех целых чисел от A до B включительно}
+var a, b, i, n:integer;
+begin
+  readln(a, b);
+  if a < b then
+  begin
+    for i:= a to b do
+      inc(n, i);
+  end;
+  writeln(n);
+end.
