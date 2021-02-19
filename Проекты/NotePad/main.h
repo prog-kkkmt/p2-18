@@ -52,7 +52,8 @@ __published:	// IDE-managed Components                                       //*
         TFindDialog *FindD;                                                     //Функция поиска в файле
         TReplaceDialog *ReplaceD;                                               //Функция замены в файле
         TMenuItem *Replace;                                                     //*
-        TMenuItem *Find_Next;                                                   //*
+        TMenuItem *Find_Next;
+        TStatusBar *StatusBar;                                                   //*
         void __fastcall OpenClick(TObject *Sender);                             //Вызывает операцию открытия окна
         void __fastcall DelClick(TObject *Sender);                              //Функция удаления
         void __fastcall MTextChange(TObject *Sender);                           //Функция активности на основном тексте
@@ -79,6 +80,11 @@ __published:	// IDE-managed Components                                       //*
         void __fastcall ReplaceClick(TObject *Sender);                          //Кнопка заменить
         void __fastcall Find_NextClick(TObject *Sender);                        //Кнопка поиска далее
         void __fastcall AboutClick(TObject *Sender);                            //Кнопка о программе
+        void __fastcall MTextKeyDown(TObject *Sender, WORD &Key,
+          TShiftState Shift);
+        void __fastcall MTextKeyUp(TObject *Sender, WORD &Key,
+          TShiftState Shift);
+        void __fastcall StatusBarResize(TObject *Sender);
 private:// User declarations
 public:// User declarations
         __fastcall TNP(TComponent* Owner);

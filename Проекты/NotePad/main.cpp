@@ -29,6 +29,8 @@ TNP *NP;
 __fastcall TNP::TNP(TComponent* Owner)
 		: TForm(Owner)
 {
+        to_Enlarge->ShortCut = TextToShortCut("Ctrl+NUM +");
+        Reduce->ShortCut = TextToShortCut("Ctrl+NUM -");
 	N = 100;                                                                //N - размер шрифта в %
 	SaveF = false;                                                          //Переменная false для сохранения файла
 }
@@ -82,8 +84,9 @@ void __fastcall TNP::OpenClick(TObject *Sender){
 		Caption = FName + " - Блокнот";                                 //Меняет название формы
 		
 		MText->Lines->LoadFromFile(OpenFile->FileName);                 //Выводит содержимое с файла в MText(Memo1)
-		
-		Way->Caption = FWay;                                            //Выводит в статут бар путь
+
+		StatusBar->Panels->Items[0]->Text = FWay;
+		//Way->Caption = FWay;                                            //Выводит в статут бар путь
 		Save->Enabled = true;                                           //Разрешает сохранения
 		SaveF = false;                                                  //Сохранение не было
 	}
@@ -94,13 +97,14 @@ void __fastcall TNP::DelClick(TObject *Sender){
 }
 //------------------Функция позиции каретки-------------------------------------
 void __fastcall TNP::MTextChange(TObject *Sender){
-	Xstr = "|Строка ";                                                      //X
+	Xstr = "Строка ";                                                      //X
 	Ystr = ", столбец ";                                                    //Y
 	X = MText->Perform(EM_LINEFROMCHAR, MText->SelStart, 0);                //Присвоение X
 	Y = MText->SelStart - MText->Perform(EM_LINEINDEX, X, 0);               //Присвоение Y
 		X += 1;                                                         //Не знаю почему так, но оно работает
 		Y += 1;                                                         //Не знаю почему так, но оно работает
-	PosXY->Caption = Xstr + X + Ystr + Y;                                   //Вывод в статус бар информацию об X и Y
+	//PosXY->Caption = Xstr + X + Ystr + Y;                                   //Вывод в статус бар информацию об X и Y
+        StatusBar->Panels->Items[1]->Text = Xstr + X + Ystr + Y;
 }
 //------------------Функция вызова фонта----------------------------------------
 void __fastcall TNP::font1Click(TObject *Sender){
@@ -121,7 +125,8 @@ void __fastcall TNP::SaveAsClick(TObject *Sender){
 	   FPath = ExtractFilePath(SaveFile->FileName);                         //**
 	   Caption = FName + " - Блокнот";                                      //**
 
-	   Way->Caption = FWay;                                                 //**
+           StatusBar->Panels->Items[0]->Text = FWay;
+	  // Way->Caption = FWay;                                                 //**
 	   Save->Enabled = true;                                                //**
 	   SaveF = true;                                                        //**
 	}
@@ -143,33 +148,39 @@ void __fastcall TNP::WordWrapClick(TObject *Sender){
 void __fastcall TNP::to_EnlargeClick(TObject *Sender){
 	if (N < 500){                                                           //Проверяет значения, чтоб то не было более 500
 		MText->Font->Size += 1;                                         //Прибавляет 1 еденицу к исходному
-		Size_Font->Caption ="|" + IntToStr(N+=10) + "%";                //Выводит Ифно о состоянии в %
+		//Size_Font->Caption ="|" + IntToStr(N+=10) + "%";                //Выводит Ифно о состоянии в %
+                StatusBar->Panels->Items[2]->Text = IntToStr(N+=10) + "%";
 	}
 }
 //-----------------Кнопка уменьшение шрифта-------------------------------------
 void __fastcall TNP::ReduceClick(TObject *Sender){
 	if (N > 10){                                                            //Проверка значения
 		MText->Font->Size -= 1;                                         //Убавляет исходный шрифт на -1
-		Size_Font->Caption ="|" + IntToStr(N-=10) + "%";                //Выводит Ифно о состоянии в %
+		//Size_Font->Caption ="|" + IntToStr(N-=10) + "%";                //Выводит Ифно о состоянии в %
+                StatusBar->Panels->Items[2]->Text = IntToStr(N-=10) + "%";
 	}
 }
 //-----------------Кнопка восстановления размера шрифта-------------------------
 void __fastcall TNP::Restore_default_scaleClick(TObject *Sender){
-   MText->Font->Size = 12;                                                      //Восстанавливает размер шрифта
+        N = 100;
+        MText->Font->Size = 12;                                                      //Восстанавливает размер шрифта
+        StatusBar->Panels->Items[2]->Text = "100%";
 }
 //-----------------Кнопка отображения статуст бара------------------------------
 void __fastcall TNP::Status_barClick(TObject *Sender){
 	if(Status_bar->Checked == true){                                        //Проверяет активна ли кнопка
-		PosXY->Visible = false;                                         //***Выключает Статутс бар
-		Size_Font->Visible = false;                                     //***
+		//PosXY->Visible = false;                                         //***Выключает Статутс бар
+		//Size_Font->Visible = false;                                     //***
+                //Way->Visible = false;                                           //***
+                StatusBar->Visible = false;
 		Status_bar->Checked = false;                                    //Делает кнопку не активной
-		Way->Visible = false;                                           //***
 		MText->Height = NP->Height - 60;                                //Смешает MText(Memo1) вниз
 	}else{
-		PosXY->Visible = true;                                          //***Включает статус бар
-		Size_Font->Visible = true;                                      //***
+		//PosXY->Visible = true;                                          //***Включает статус бар
+		//Size_Font->Visible = true;                                      //***
+                //Way->Visible = true;                                            //***
+                StatusBar->Visible = true;
 		Status_bar->Checked = true;                                     //Делает кнопку активной
-		Way->Visible = true;                                            //***
 		MText->Height = NP->Height - 75;                                //Поднимает MText(Memo1) вверх
 	 }
 }
@@ -197,14 +208,12 @@ void __fastcall TNP::TTEClose(TObject *Sender, TCloseAction &Action){
 	SaveF = false;                                                          //***
 }
 //--------------------Кнопка поиска---------------------------------------------
-void __fastcall TNP::FindClick(TObject *Sender)
-{
+void __fastcall TNP::FindClick(TObject *Sender){
 	FindD->FindText = MText->SelText;                                       //Выделяет весь текст
 	FindD->Execute();                                                       //Передает в функцию FindDFind
 }
 //-------------------Функция поиска---------------------------------------------
-void __fastcall TNP::FindDFind(TObject *Sender)
-{
+void __fastcall TNP::FindDFind(TObject *Sender){
 	StartPos = MText->SelStart;                                             //Позиция старта поиска (Положение каретки)
         Find_Next->Enabled = true;                                              //Делает активную кнопку искать далее
 
@@ -226,8 +235,7 @@ void __fastcall TNP::FindDFind(TObject *Sender)
 		Application->Title = "Блокнот";                                 //***
 }
 //-----------------Функция замены слов------------------------------------------
-void __fastcall TNP::ReplaceDFind(TObject *Sender)
-{
+void __fastcall TNP::ReplaceDFind(TObject *Sender){
 	FoundAt = 0;                                                            //Позиция каретки в начало
 	StartPos = MText->SelStart;                                             //***
 
@@ -255,8 +263,7 @@ void __fastcall TNP::ReplaceDFind(TObject *Sender)
 		ReplaceDReplace(Sender);                                        //Вызывает функцию ReplaceDReplace
 }
 //--------------------Функция замены ALL----------------------------------------
-void __fastcall TNP::ReplaceDReplace(TObject *Sender)
-{
+void __fastcall TNP::ReplaceDReplace(TObject *Sender){
 	if (MText->SelText != "")                                               //проверяет есть ли выделенный текст
 			MText->SelText = ReplaceD->ReplaceTextA;                //***
 	
@@ -270,14 +277,12 @@ void __fastcall TNP::ReplaceDReplace(TObject *Sender)
 			ReplaceDFind(Sender);                                   //***
 }
 //------------------Кнопка замены-----------------------------------------------
-void __fastcall TNP::ReplaceClick(TObject *Sender)
-{
+void __fastcall TNP::ReplaceClick(TObject *Sender){
 	ReplaceD->FindTextA = MText->SelText;
 	ReplaceD->Execute();
 }
 //------------------Кнопка поиска далее-----------------------------------------
-void __fastcall TNP::Find_NextClick(TObject *Sender)
-{
+void __fastcall TNP::Find_NextClick(TObject *Sender){
         StartPos = MText->SelStart;                                             //***
 
 	if(MText->SelLength)                                                    //***
@@ -298,11 +303,38 @@ void __fastcall TNP::Find_NextClick(TObject *Sender)
 		Application->Title = "Блокнот";                                 //***
 }
 //------------------Кнопка о программе------------------------------------------
-
-void __fastcall TNP::AboutClick(TObject *Sender)
-{
+void __fastcall TNP::AboutClick(TObject *Sender){
         About_the_program->ShowModal();                                         //Вызывает форму About_The_program
 }
 //------------------------------------------------------------------------------
+void __fastcall TNP::MTextKeyDown(TObject *Sender, WORD &Key,
+      TShiftState Shift){
+        	Xstr = "Строка ";                                               //X
+	        Ystr = ", столбец ";                                            //Y
+	X = MText->Perform(EM_LINEFROMCHAR, MText->SelStart, 0);                //Присвоение X
+	Y = MText->SelStart - MText->Perform(EM_LINEINDEX, X, 0);               //Присвоение Y
+		X += 1;                                                         //Не знаю почему так, но оно работает
+		Y += 1;                                                         //Не знаю почему так, но оно работает
+	//PosXY->Caption = Xstr + X + Ystr + Y;                                   //Вывод в статус бар информацию об X и Y
+        StatusBar->Panels->Items[1]->Text = Xstr + X + Ystr + Y;
+}
+//---------------------------------------------------------------------------
+void __fastcall TNP::MTextKeyUp(TObject *Sender, WORD &Key,
+      TShiftState Shift){
+        	Xstr = "Строка ";                                               //X
+	        Ystr = ", столбец ";                                            //Y
+	X = MText->Perform(EM_LINEFROMCHAR, MText->SelStart, 0);                //Присвоение X
+	Y = MText->SelStart - MText->Perform(EM_LINEINDEX, X, 0);               //Присвоение Y
+		X += 1;                                                         //Не знаю почему так, но оно работает
+		Y += 1;                                                         //Не знаю почему так, но оно работает
+	//PosXY->Caption = Xstr + X + Ystr + Y;
+        StatusBar->Panels->Items[1]->Text = Xstr + X + Ystr + Y;
+}
+//---------------------------------------------------------------------------
 
+void __fastcall TNP::StatusBarResize(TObject *Sender)
+{
+    StatusBar->Panels->Items[0]->Width = NP->Width/2;
+}
+//---------------------------------------------------------------------------
 

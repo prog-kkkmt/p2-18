@@ -1,6 +1,6 @@
 object About_the_program: TAbout_the_program
-  Left = 666
-  Top = 305
+  Left = 1367
+  Top = 267
   BorderStyle = bsDialog
   Caption = #1041#1083#1086#1082#1085#1086#1090': '#1089#1074#1077#1076#1077#1085#1080#1103
   ClientHeight = 391
