@@ -5,9 +5,17 @@ def steal():
     f.write(en.get() + '\n' + en2.get())
     f.close()
 
+def color():
+    if stealer['bg'] == 'grey22':
+        stealer['bg'] = 'whitesmoke'
+    else:
+        stealer['bg'] = 'grey22'
+
 stealer = Tk()
 
 stealer.geometry('220x150+700+300')
+
+stealer['bg'] == 'whitesmoke'
 
 lb = Label(stealer, text='Логин').grid(row=1)
 en = Entry(stealer, width=15)
@@ -27,5 +35,8 @@ rb2 = Radiobutton(stealer, text="Защита от бана", value=2).place(x=1
 
 b = Button(stealer, text='ПОЛУЧИТЬ ГЕМЫ',background="#555", foreground="#ccc", command=steal)
 b.place(x=0, y=120)
+
+b = Button(stealer, text='Темная тема', command=color)
+b.place(x=120, y=0)
 
 stealer.mainloop()
