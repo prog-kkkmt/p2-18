@@ -1,0 +1,24 @@
+УП.01 Учебная практика по модулю ПМ.01
+Консультация 21. Техника работы с библиотекой Matplotlib
+21-1. МГОТУ ККМТ, П1-18, П2-18
+
+Задание.
+
+1. Установить необходимые модули
+2. Набрать и запустить приведённые коды
+3. Подготоить примеры
+
+Урок 1. Быстрый старт
+https://devpractice.ru/matplotlib-lesson-1-quick-start-guide/
+Урок 2. Работа с инструментом pyplot
+https://devpractice.ru/matplotlib-lesson-2-work-with-pyplot/
+
+Ожидаемый результат
+1. Отчёт о выполнении работы, включая приложенные файлы
+
+Материалы
+1. Matplotlib. Уроки
+https://devpractice.ru/matplotlib-lessons/
+
+2. Книга "Библиотека Matplotlib"
+https://devpractice.ru/files/books/python/Matplotlib.book.pdf
