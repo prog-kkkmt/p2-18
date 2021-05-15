@@ -31,8 +31,12 @@ def main():
     # Создание объекта окна верхнего уровня (на нём будут распологаться все элементы
     mainwindow = Tk()
     # Задание размера окна и его координат расположения
-    mainwindow.geometry("580x340+700+300")
+    mainwindow.geometry("580x360+700+300")
     mainwindow.title("Симулятор программиста")
+    # mainwindow.iconbitmap("img\Icon.ico")
+    ico = Image.open('img\Icon.ico')
+    photo = ImageTk.PhotoImage(ico)
+    mainwindow.wm_iconphoto(False,photo)
     mainwindow["bg"] = "gray22"
     mainmenu = Menu(mainwindow)
     mainwindow.config(menu=mainmenu)
@@ -111,9 +115,9 @@ def main():
 
 
     b3 = Button(mainwindow, text="Сохранить и выйти", relief = 'flat', background="#555", foreground="#ccc", activebackground="#333333", width=15, height=1)
-    b3.place(x=165, y=280)
+    b3.place(x=165, y=285)
     b3 = Button(mainwindow, text="Ввести код", relief = 'flat', background="#555", foreground="#ccc", activebackground="#333333", width=15, height=1)
-    b3.place(x=45, y=280)
+    b3.place(x=45, y=285)
     clickbtn = Button(mainwindow, background="gray22", relief = 'flat', image=img, activebackground="#333333", command=click)
     clickbtn.place(x=320, y=100)
 
