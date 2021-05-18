@@ -30,10 +30,11 @@ def main():
             KolVoRAM += 1
             priceRAM = priceRAM*1.07**KolVoRAM
             moneyRAM += 1
-        UpgradeText.set("{}$".format(int(upgrade)))
-        MoneyText.set("{}$".format(int(money)))
-        PriceRAMset.set("{}$".format(int(priceRAM)))
-        MoneyRAMset.set("{}$".format(int(moneyRAM)))
+        UpgradeText.set("{}".format(int(upgrade)))
+        MoneyText.set("{}".format(int(money)))
+        PriceRAMset.set("{}".format(int(priceRAM)))
+        MoneyRAMset.set("{}".format(int(moneyRAM)))
+        KolVoRAMset.set("{}".format(int(KolVoRAM)))
 
     def upgradeCPU():  
         global money
@@ -47,10 +48,11 @@ def main():
             KolVoCPU += 1
             priceCPU = priceCPU*1.07**KolVoCPU
             moneyCPU += 2
-        UpgradeText.set("{}$".format(int(upgrade)))
-        MoneyText.set("{}$".format(int(money)))
-        PriceCPUset.set("{}$".format(int(priceCPU)))
-        MoneyCPUset.set("{}$".format(int(moneyCPU)))
+        UpgradeText.set("{}".format(int(upgrade)))
+        MoneyText.set("{}".format(int(money)))
+        PriceCPUset.set("{}".format(int(priceCPU)))
+        MoneyCPUset.set("{}".format(int(moneyCPU)))
+        KolVoCPUset.set("{}".format(int(KolVoCPU)))
 
     def upgradeCARD():  
         global money
@@ -64,17 +66,18 @@ def main():
             KolVoCARD += 1
             priceCARD = priceCARD*1.07**KolVoCARD
             moneyCARD += 5
-        UpgradeText.set("{}$".format(int(upgrade)))
-        MoneyText.set("{}$".format(int(money)))
-        PriceCARDset.set("{}$".format(int(priceCARD)))
-        MoneyCARDset.set("{}$".format(int(moneyCARD)))
+        UpgradeText.set("{}".format(int(upgrade)))
+        MoneyText.set("{}".format(int(money)))
+        PriceCARDset.set("{}".format(int(priceCARD)))
+        MoneyCARDset.set("{}".format(int(moneyCARD)))
+        KolVoCARDset.set("{}".format(int(KolVoCARD)))
 
 
     def click():  
         global money
         global upgrade
         money += upgrade
-        MoneyText.set("{}$".format(int(money)))
+        MoneyText.set("{}".format(int(money)))
 
 
 
@@ -83,16 +86,21 @@ def main():
         def secret() :
             global money
             global upgrade
+            lb21 = Label(code, text="", background="gray22", foreground="#ccc")
             if SecretCodeEN.get() == 'GE5GS':
                 money = 9999999
                 upgrade = 9999999
-                UpgradeText.set("{}$".format(int(upgrade)))
-                MoneyText.set("{}$".format(int(money)))
+                UpgradeText.set("{}".format(int(upgrade)))
+                MoneyText.set("{}".format(int(money)))
+                codebg2 = Label(code, background="gray22", image=img10)
+                codebg2.place(x=1,y=155)
                 lb21 = Label(code, text="Код активирован", background="gray22", foreground="#ccc")
-                lb21.place(x=53, y=152)
+                lb21.place(x=53, y=155)
             else:
-                lb20 = Label(code, text="Код введен неверно", background="gray22", foreground="#ccc")
-                lb20.place(x=43, y=152)
+                codebg2 = Label(code, background="gray22", image=img10)
+                codebg2.place(x=1,y=155)
+                lb21 = Label(code, text="Ошибка активации кода", background="gray22", foreground="#ccc")
+                lb21.place(x=33, y=155)
 
                 
         code = Toplevel(mainwindow)
@@ -103,12 +111,12 @@ def main():
         photo = ImageTk.PhotoImage(ico)
         code.wm_iconphoto(False,photo)
         SecretCodeEN = StringVar()
-        codebg = Label(code, background="gray22", image=img5)
+        codebg = Label(code, background="#414141", image=img11)
         codebg.place(x=1,y=20)
         b18 = Button(code, text="Подтвердить", relief = 'flat', background="#555", font = ('Arial' , 13), foreground="#ccc", activebackground="#333333", width=15, height=1, command=secret)
         b18.place(x=30, y=110)
-        en1 = Entry(code, width=15, textvariable=SecretCodeEN)
-        en1.place(x=55, y=74)
+        en1 = Entry(code, width=15, textvariable=SecretCodeEN, background="gray22", relief = 'flat', font = ('Arial' , 13), foreground="#ccc")
+        en1.place(x=33, y=74)
         lb19 = Label(code, text="Введите код", background="#414141", font = ('Arial' , 20), foreground="#ccc")
         lb19.place(x=19, y=25)
     
@@ -140,24 +148,35 @@ def main():
     helpmenu.add_command(label="Выход",)
 
     MoneyText = StringVar()
-    MoneyText.set("{}$".format(int(money)))
+    MoneyText.set("{}".format(int(money)))
     UpgradeText = StringVar()
-    UpgradeText.set("{}$".format(int(upgrade)))
+    UpgradeText.set("{}".format(int(upgrade)))
     
     PriceRAMset = StringVar()
-    PriceRAMset.set("{}$".format(int(priceRAM)))
+    PriceRAMset.set("{}".format(int(priceRAM)))
     MoneyRAMset = StringVar()
-    MoneyRAMset.set("{}$".format(int(moneyRAM)))
+    MoneyRAMset.set("{}".format(int(moneyRAM)))
+    KolVoRAMset = StringVar()
+    KolVoRAMset.set("{}".format(int(KolVoRAM)))
 
     PriceCPUset = StringVar()
-    PriceCPUset.set("{}$".format(int(priceCPU)))
+    PriceCPUset.set("{}".format(int(priceCPU)))
     MoneyCPUset = StringVar()
-    MoneyCPUset.set("{}$".format(int(moneyCPU)))
+    MoneyCPUset.set("{}".format(int(moneyCPU)))
+    KolVoCPUset = StringVar()
+    KolVoCPUset.set("{}".format(int(KolVoCPU)))
 
     PriceCARDset = StringVar()
-    PriceCARDset.set("{}$".format(int(priceCARD)))
+    PriceCARDset.set("{}".format(int(priceCARD)))
     MoneyCARDset = StringVar()
-    MoneyCARDset.set("{}$".format(int(moneyCARD)))
+    MoneyCARDset.set("{}".format(int(moneyCARD)))
+
+    PriceCARDset = StringVar()
+    PriceCARDset.set("{}".format(int(priceCARD)))
+    MoneyCARDset = StringVar()
+    MoneyCARDset.set("{}".format(int(moneyCARD)))
+    KolVoCARDset = StringVar()
+    KolVoCARDset.set("{}".format(int(KolVoCARD)))
     
     
     img = ImageTk.PhotoImage(Image.open("img\comp.png"))
@@ -169,6 +188,8 @@ def main():
     img7 = ImageTk.PhotoImage(Image.open("img\shop\card.png"))
     img8 = ImageTk.PhotoImage(Image.open("img\shop\oram.png"))
     img9 = ImageTk.PhotoImage(Image.open("img\logoshop.png"))
+    img10 = ImageTk.PhotoImage(Image.open("img\error.png"))
+    img11 = ImageTk.PhotoImage(Image.open("img\codebg.png"))
 
     Logo = Label(mainwindow, background="gray22", image=img6)
     Logo.place(x=28, y=0)
@@ -203,11 +224,15 @@ def main():
     lb9.place(x=26, y=230)
     lb14 = Label(mainwindow, textvariable=MoneyRAMset, background="#414141", foreground="#ccc")
     lb14.place(x=90, y=230)
+    lb25 = Label(mainwindow, text="Уровень:", background="#414141", foreground="#ccc")
+    lb25.place(x=33, y=250)
+    lb26 = Label(mainwindow, textvariable=KolVoRAMset, background="#414141", foreground="#ccc")
+    lb26.place(x=87, y=250)
 
     b5 = Button(mainwindow, background="#414141", relief = 'flat', image=img4, activebackground="#333333", command=upgradeCPU)
-    b5.place(x=133, y=130)
+    b5.place(x=130, y=130)
     lb4 = Label(mainwindow, text="CPU", background="#414141", foreground="#ccc")
-    lb4.place(x=146, y=190)
+    lb4.place(x=143, y=190)
     lb5 = Label(mainwindow, text="Цена:", background="#414141", foreground="#ccc")
     lb5.place(x=126, y=210)
     lb15 = Label(mainwindow, textvariable=PriceCPUset, background="#414141", foreground="#ccc")
@@ -216,11 +241,15 @@ def main():
     lb6.place(x=116, y=230)
     lb16 = Label(mainwindow, textvariable=MoneyCPUset, background="#414141", foreground="#ccc")
     lb16.place(x=180, y=230)
+    lb23 = Label(mainwindow, text="Уровень:", background="#414141", foreground="#ccc")
+    lb23.place(x=126, y=250)
+    lb24 = Label(mainwindow, textvariable=KolVoCPUset, background="#414141", foreground="#ccc")
+    lb24.place(x=180, y=250)
 
     b6 = Button(mainwindow, background="#414141", relief = 'flat', image=img7, activebackground="#333333", command=upgradeCARD)
-    b6.place(x=227, y=139)
+    b6.place(x=223, y=139)
     lb10 = Label(mainwindow, text="Videocard", background="#414141", foreground="#ccc")
-    lb10.place(x=226, y=190)
+    lb10.place(x=222, y=190)
     lb11 = Label(mainwindow, text="Цена:", background="#414141", foreground="#ccc")
     lb11.place(x=218, y=210)
     lb17 = Label(mainwindow, textvariable=PriceCARDset, background="#414141", foreground="#ccc")
@@ -229,6 +258,11 @@ def main():
     lb12.place(x=211, y=230)
     lb17 = Label(mainwindow, textvariable=MoneyCARDset, background="#414141", foreground="#ccc")
     lb17.place(x=275, y=230)
+    lb22 = Label(mainwindow, text="Уровень:", background="#414141", foreground="#ccc")
+    lb22.place(x=221, y=250)
+    lb25 = Label(mainwindow, textvariable=KolVoCARDset, background="#414141", foreground="#ccc")
+    lb25.place(x=275, y=250)
+    
 
 
     b3 = Button(mainwindow, text="Сохранить", relief = 'flat', background="#555", foreground="#ccc", activebackground="#333333", width=15, height=1)
