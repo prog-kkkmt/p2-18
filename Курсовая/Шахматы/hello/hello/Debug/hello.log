@@ -1,0 +1,28 @@
+﻿  main.cpp
+c:\users\shindows\source\repos\hello\hello\main.cpp(34): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+c:\users\shindows\source\repos\hello\hello\main.cpp(60): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\shindows\source\repos\hello\hello\main.cpp(63): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\shindows\source\repos\hello\hello\main.cpp(101): warning C4244: аргумент: преобразование "T" в "T", возможна потеря данных
+          with
+          [
+              T=int
+          ]
+          and
+          [
+              T=float
+          ]
+c:\users\shindows\source\repos\hello\hello\main.cpp(113): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+c:\users\shindows\source\repos\hello\hello\main.cpp(114): warning C4244: аргумент: преобразование "int" в "T", возможна потеря данных
+          with
+          [
+              T=float
+          ]
+  hello.vcxproj -> C:\Users\Shindows\source\repos\hello\Debug\hello.exe
