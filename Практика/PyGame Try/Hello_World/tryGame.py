@@ -80,19 +80,36 @@ def menu(position, wight):
         position = 11
     elif event.type == pygame.MOUSEMOTION and event.pos[0] > wight * 0.33 and event.pos[0] < wight * 0.65 and event.pos[
         1] > wight * 0.3 and event.pos[1] < wight * 0.35:
-        position = 2
+         position = 2
+    elif event.type == pygame.MOUSEBUTTONUP and event.pos[0] > wight * 0.33 and event.pos[0] < wight * 0.65 and event.pos[
+        1] > wight * 0.3 and event.pos[1] < wight * 0.35:
+        position = 22
     return position
 
 
-def setting(wight, position):
+def setting(wight, position,sizr_check,no_wight):
     font = pygame.font.SysFont('couriernew', int(wight * 0.06))
-    start = font.render(str('Size'), True, THECOLORS['green'] if (position == 1) else THECOLORS['pink'])
-    screen.blit(start, (wight * 0.4, wight * 0.2))
-    # if event.type == pygame.MOUSEBUTTONUP and event.pos[0] > wight * 0.4 and event.pos[0] < wight * 0.57 and event.pos[1] > wight * 0.2 and event.pos[1] < wight * 0.25:
-    #    position =0
-    if event.type == pygame.KEYUP:
-        print(event.key)
-    return wight, 0
+    size = font.render(str('Size:'), True, THECOLORS['green'] if (sizr_check == 1) else THECOLORS['pink'])
+    screen.blit(size, (wight * 0.4, wight * 0.2))
+    if event.type == pygame.MOUSEMOTION and event.pos[0] > wight * 0.4 and event.pos[0] < wight * 0.57 and event.pos[1] > wight * 0.2 and event.pos[1] < wight * 0.25:
+        sizr_check = 1
+    if event.type == pygame.KEYUP and event.key == pygame.K_RETURN:
+        position = 0
+        wight = INTEGER(no_wight,wight)
+        no_wight = ''
+    elif event.type == pygame.KEYUP and event.key == pygame.K_BACKSPACE:
+        no_wight = no_wight[:-1]
+    elif event.type == pygame.KEYUP:
+        no_wight += event.unicode
+    size = font.render(str(no_wight), True, THECOLORS['pink'])
+    screen.blit(size, (wight * 0.6, wight * 0.2))
+    return wight, position,sizr_check,no_wight
+
+def INTEGER(no_wight,wight):
+    try:
+        return int(no_wight)
+    except:
+        return int(wight)
 
 
 pygame.init()
@@ -101,7 +118,6 @@ pygame.init()
 
 # wight=int(input("wight"))
 wight = 750
-hight = wight
 x = wight / 2
 y = x
 temp = 0
@@ -112,9 +128,15 @@ second = 0
 i = 0
 gg = 0
 position = 0
+sizr_check=0
+no_wight=''
 
 while True:
     # Создание экрана
+    hight = wight
+    if position == 0:
+        x = wight / 2
+        y = x
     screen = pygame.display.set_mode((wight, hight))
     # Ограничение FPS
     pygame.time.delay(10)
@@ -126,6 +148,7 @@ while True:
     # Проигрыш
     if gg == 1:
         game_over(gg)
+        '''
         pygame.key.get_pressed()
         sd = ''
         if event.type == pygame.KEYDOWN:
@@ -136,22 +159,27 @@ while True:
                 sd = sd[:-1]
             else:
                 sd += event.unicode
-        print(sd)
+        print(sd)'''
         if event.type == pygame.MOUSEBUTTONUP:
+            hight = wight
+            x = wight / 2
+            y = x
+            temp = 0
+            home_hub = queue.Queue()
+            limit = 0
+            first = 0
+            second = 0
+            i = 0
             gg = 0
             position = 0
-            for i in range (limit):
-                junk=home_hub.get()
+            sizr_check=0
         continue
 
     keys = pygame.key.get_pressed()
 
     # Создание меню
-
-    if position != 11:
-        position = menu(position, wight)
-    elif position == 22:
-        wight, position = setting(wight, position)
+    if position == 22:
+        wight, position,sizr_check,no_wight = setting(wight, position,sizr_check,no_wight)
     elif position == 33:
         pygame.quit()
         sys.exit()
@@ -196,6 +224,8 @@ while True:
 
         # Движение круга
         x, y = move(x, y)
+    elif position != 11:
+        position = menu(position, wight)
 
     pygame.display.flip()
 
