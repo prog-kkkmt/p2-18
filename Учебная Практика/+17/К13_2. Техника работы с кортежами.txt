@@ -1,0 +1,18 @@
+УП.01 Учебная практика по модулю ПМ.01
+Консультация 13. Техника работы с кортежами
+13-2.
+Составитель: Гусятинер Л.Б., 2.12.2020, МГОТУ ККМТ, П1-18, П2-18
+
+Задание 1. Класс namedtuple() модуля collections в Python.
+https://docs-python.ru/standart-library/modul-collections-python/klass-namedtuple-modulja-collections/
+
+По приведённым примерам подготовить свои.
+
+Ожидаемый результат
+1. Отчёт о выполнении работы, включая приложенные файлы
+
+Материалы.
+
+1. A Byte of Python (Russian). Версия 2.02. Swaroop C H (Перевод: Владимир Смоляр)
+26 апреля 2020
+http://wombat.org.ua/AByteOfPython

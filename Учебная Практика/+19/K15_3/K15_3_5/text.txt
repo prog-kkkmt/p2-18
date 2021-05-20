@@ -1,0 +1,9 @@
+Hello, write your name:
+Ok. It's cool!
+How old are you?
+Age can't be negative or zero!
+Wow! Your age impressive!
+How do you rate our program? (Write "like" or "dis")
+Thx, it was nice to meet you!
+This function don't work. Try to write "like"
+What is it?.. Enter "like" or "dis"
