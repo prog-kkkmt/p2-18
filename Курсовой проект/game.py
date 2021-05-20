@@ -1,5 +1,15 @@
 from tkinter import *
 from PIL import ImageTk, Image
+import sqlite3
+
+
+conn = sqlite3.connect('save\SaveFile')
+curs = conn.cursor()
+*save, = curs.execute('SELECT Save FROM Save')
+print(save)
+'''curs.execute("""CREATE TABLE Save(
+    Name TEXT,
+    Save INTENGER)""")'''
 
 money = 0
 upgrade = 1
@@ -81,6 +91,7 @@ def main():
 
 
 
+
     def code():
 
         def secret() :
@@ -121,10 +132,35 @@ def main():
         lb19.place(x=19, y=25)
     
     
-    def save1():
-        f = open('prof.txt', 'w')
-        f.writelines("\n".join(box1.get(0, END)))
-        f.close()
+    def save():
+        global money
+        global upgrade 
+        global priceRAM 
+        global moneyRAM 
+        global KolVoRAM 
+        global priceCPU 
+        global moneyCPU 
+        global KolVoCPU 
+        global priceCARD 
+        global moneyCARD 
+        global KolVoCARD
+
+        text = [('money', money),
+                ('upgrade ', upgrade),
+                ('priceRAM', priceRAM),
+                ('moneyRAM', moneyRAM),
+                ('KolVoRAM', KolVoRAM),
+                ('priceCPU', priceCPU),
+                ('moneyCPU', moneyCPU),
+                ('KolVoCPU',  KolVoCPU),
+                ('priceCARD', priceCARD),
+                ('moneyCARD', moneyCARD),
+                ('KolVoCARD', KolVoCARD)]
+        
+        curs.execute('DELETE FROM Save')
+        conn.commit()
+        curs.executemany('INSERT INTO Save VALUES (?, ?)' , text)
+        conn.commit()
 
     # Создание объекта окна верхнего уровня (на нём будут распологаться все элементы)
     mainwindow = Tk()
@@ -265,7 +301,7 @@ def main():
     
 
 
-    b3 = Button(mainwindow, text="Сохранить", relief = 'flat', background="#555", foreground="#ccc", activebackground="#333333", width=15, height=1)
+    b3 = Button(mainwindow, text="Сохранить", relief = 'flat', background="#555", foreground="#ccc", activebackground="#333333", width=15, height=1, command=save)
     b3.place(x=165, y=285)
     b3 = Button(mainwindow, text="Ввести код", relief = 'flat', background="#555", foreground="#ccc", activebackground="#333333", width=15, height=1, command=code)
     b3.place(x=45, y=285)
