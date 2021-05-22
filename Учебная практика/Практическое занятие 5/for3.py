@@ -1,6 +1,8 @@
-#https://pythontutor.ru/lessons/for_loop/problems/series_1/
-#Даны два целых числа A и B (при этом A ≤ B).
-#Выведите все числа от A до B включительно.
+# Выполнил: Бурлаев З. С.
+# https://pythontutor.ru/lessons/for_loop/problems/series_1/
+# Даны два целых числа A и B (при этом A ≤ B).
+# Выведите все числа от A до B включительно.
+
 a = int(input())
 b = int(input())
 for i in range(a, b + 1):
