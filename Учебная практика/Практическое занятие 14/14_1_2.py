@@ -1,5 +1,5 @@
-#http://ptaskbook.com/ru/tasks/text.php
-#Text12
+# http://ptaskbook.com/ru/tasks/text.php
+# Text12
 # Выполнили: Воронцов А.А. Бурлаев З.С. Щепкин М.В. П2-18
 
 """
