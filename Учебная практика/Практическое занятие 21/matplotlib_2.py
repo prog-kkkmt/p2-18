@@ -1,3 +1,5 @@
+# Выполниили Бурлаев Захар, Воронцов Александр
+
 import matplotlib.pyplot as plt
 import numpy as np
 
