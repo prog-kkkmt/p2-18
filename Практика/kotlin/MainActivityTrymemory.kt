@@ -1,3 +1,4 @@
+/* Попытатсья записать данные в память телефона и изъять их обратно */
 package com.example.trytomemory
 
 import android.content.Context
