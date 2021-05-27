@@ -1,3 +1,5 @@
+/*Освоение базовых функций Android Studio */
+
 package com.example.myapplication
 
 import android.graphics.Color
