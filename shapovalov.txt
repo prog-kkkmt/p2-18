@@ -1,0 +1,83 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        List<Double> listX = new ArrayList<>();
+        List<Double> listY = new ArrayList<>();
+        //x init
+
+        /*listX.add(98.0);
+        listX.add(105.0);
+        listX.add(100.0);
+        listX.add(100.0);
+        listX.add(106.0);
+        listX.add(95.0);
+        listX.add(116.0);
+        listX.add(112.0);
+
+        //y init
+        listY.add(2.1);
+        listY.add(2.4);
+        listY.add(3.2);
+        listY.add(2.7);
+        listY.add(2.2);
+        listY.add(2.3);
+        listY.add(3.8);
+        listY.add(3.4);*/
+
+        //98,0 105,0 100,0 100,0 106,0 95,0 116,0 112,0
+        //2,1 2,4 3,2 2,7 2,2 2,3 3,8 3,4
+
+
+
+        System.out.println("Сколько будет исходных данных в каждом массиве?");
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+
+        System.out.println("Введите первый массив данных");
+        for(int i = 0; i < n;i++){
+            listX.add(scanner.nextDouble());
+        }
+        System.out.println("Введите Второй массив данных");
+        for(int i = 0; i < n;i++){
+            listY.add(scanner.nextDouble());
+        }
+
+        System.out.println("a = " + getA(listX,listY));
+        System.out.println("b = " + getB(listX,listY));
+    }
+
+    public static Double getAverageForList(List<Double> list){
+        Double result = 0.0;
+        for(Double var : list){
+            result += var;
+        }
+        return result / list.size();
+    }
+
+    private static Double getTop(List<Double> listX, List<Double> listY){
+        Double result = 0.0;
+        for(int i = 0; i < listX.size();i++){
+            result += (listX.get(i) - getAverageForList(listX)) * (listY.get(i) - getAverageForList(listY));
+        }
+        return result;
+    }
+
+    private static Double getBot(List<Double> listX){
+        Double result = 0.0;
+        for (Double x : listX) {
+            result += Math.pow((x - getAverageForList(listX)), 2.0);
+        }
+        return result;
+    }
+
+    public static Double getA(List<Double> listX, List<Double> listY){
+        return getTop(listX,listY) / getBot(listX);
+    }
+
+    public static Double getB(List<Double> listX, List<Double> listY){
+        return getAverageForList(listY) - getA(listX,listY) * getAverageForList(listX);
+    }
+}
