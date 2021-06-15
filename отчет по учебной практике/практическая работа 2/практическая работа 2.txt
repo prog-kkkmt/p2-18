@@ -1,0 +1,10 @@
+Установка Python будет производиться в PyCharm Community Edition 2020
+1. Открываем сайт https://www.python.org/downloads/ 
+2. Нажимаем на кнопку "Download Python 3.9.0".
+3. Ждём окончания загрузки.
+4. Открывай установщик Python 3.9.0
+5. Указываем путь установки Python library и ставим галочку на “Add Python 3.9 to PATH”
+6. Ждём окончания загрузки.
+7.Теперь мы можем начинать кодить в любом из удобных вам интегрированных средах разработки.
+
+https://drive.google.com/file/d/1CdA0eJAUHnbn1lGqWnxPOlF6J8u1232Z/view
