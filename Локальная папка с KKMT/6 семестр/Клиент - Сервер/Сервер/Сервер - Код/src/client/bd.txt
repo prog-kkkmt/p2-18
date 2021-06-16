@@ -1,0 +1,3 @@
+admin admin
+kostya 123
+vanya qwerty
