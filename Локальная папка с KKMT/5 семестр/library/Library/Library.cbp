@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Library" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Library" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Library" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="add_reader.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="add_reader.h" />
+		<Unit filename="find_reader.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="find_reader.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="reader_list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="reader_list.h" />
+		<Unit filename="sort_by_author.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sort_by_author.h" />
+		<Unit filename="sort_by_book.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sort_by_book.h" />
+		<Unit filename="sort_by_year.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sort_by_year.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
