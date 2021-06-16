@@ -1,0 +1,19 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "File.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+void __fastcall TNotePadF::SavedTF()
+{
+	FName = ExtractFileName(OpenTF->FileName);
+	FPath = ExtractFilePath(OpenTF->FileName);
+	if(!Saved && FName == "\0" && MText->Lines->Count > 0 && MessageDlg("Вы хотите сохранить данные?",
+		mtConfirmation  , TMsgDlgButtons() << mbNo << mbYes, 0) == mrYes && SaveTF->Execute()){
+		MText->Lines->SaveToFile(SaveTF->FileName);
+		}else if(!Saved && FName != "\0" && MText->Lines->Count > 0 && MessageDlg("Вы хотите сохранить изменения в файле " + FPath + FName,
+				mtConfirmation  , TMsgDlgButtons() << mbNo << mbYes, 0) == mrYes){
+				MText->Lines->SaveToFile(FPath+FName);
+				}
+	Saved = false;

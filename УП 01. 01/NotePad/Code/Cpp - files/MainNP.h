@@ -1,0 +1,193 @@
+//---------------------------------------------------------------------------
+
+#ifndef MainNPH
+#define MainNPH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include <Vcl.Menus.hpp>
+#include <Vcl.ComCtrls.hpp>
+#include <Vcl.Dialogs.hpp>
+#include <Vcl.ExtDlgs.hpp>
+
+#include <Registry.hpp>
+#include <Xml.xmldom.hpp>
+#include <Xml.XMLIntf.hpp>
+//---------------------------------------------------------------------------
+class TNotePadF : public TForm
+{
+__published:	// IDE-managed Components
+
+//----------------------------Компоненты Меню--------------------------------
+	TMainMenu *MainMenu;
+	TMenuItem *File;
+	TMenuItem *Edit;
+	TMenuItem *Format;
+	TMenuItem *Viwe;
+	TMenuItem *Reference;
+	TMenuItem *Create;
+	TMenuItem *Open;
+	TMenuItem *Save;
+	TMenuItem *Save_Ass;
+	TMenuItem *N10;
+	TMenuItem *Page_Settings;
+	TMenuItem *Printing;
+	TMenuItem *N13;
+	TMenuItem *Exit;
+	TMenuItem *Undo;
+	TMenuItem *N15;
+	TMenuItem *Cut;
+	TMenuItem *Copy;
+	TMenuItem *Paste;
+	TMenuItem *Delete;
+	TMenuItem *N20;
+	TMenuItem *Bing;
+	TMenuItem *Find;
+	TMenuItem *Find_Next;
+	TMenuItem *Repalce;
+	TMenuItem *GoTo;
+	TMenuItem *N25;
+	TMenuItem *Selete_All;
+	TMenuItem *Time_Date;
+	TMenuItem *Word_Wrap;
+	TMenuItem *Font;
+	TMenuItem *Scale;
+	TMenuItem *to_Enlarge;
+	TMenuItem *Reduce;
+	TMenuItem *Restore_to_default;
+	TMenuItem *Status_Bar;
+	TMenuItem *Viwe_Help;
+	TMenuItem *N36;
+	TMenuItem *About_the_Programm;
+//---------------------------------------------------------------------------
+
+//-----------------------Компоненты формы Блокнота---------------------------
+	TMemo *MText; //Основной экран вывода текста
+	TStatusBar *StatusBar; //Статус бар
+	TOpenTextFileDialog *OpenTF; //Диалоговое окно, для открытие файлов
+	TSaveTextFileDialog *SaveTF; //Диалоговое окно, для сохранения файлов
+	TFontDialog *FontD; //Шрифт
+	TFindDialog *FindD; //Диалоговое окно поиска
+	TPageSetupDialog *PageSetupD; //Параметры страницы
+	TPrintDialog *PrintD; //Печать
+	TReplaceDialog *ReplaceD; //Диалоговое окно замены
+	TMenuItem *Review;
+	TMenuItem *NightS; //Отзыв
+//---------------------------------------------------------------------------
+
+//-------------------------Функции Блокнота----------------------------------
+	void __fastcall StatusBarResize(TObject *Sender); //Изминение размеров
+	void __fastcall FormClose(TObject *Sender, TCloseAction &Action); //Функция закрытия формы/сохранение параметров
+	void __fastcall FormCreate(TObject *Sender); //Функция создания формы/восстановление параметров
+	void __fastcall Status_BarClick(TObject *Sender); //StatusBar
+	void __fastcall MTextKeyUp(TObject *Sender, WORD &Key, TShiftState Shift);
+	void __fastcall MTextChange(TObject *Sender);
+	void __fastcall MTextClick(TObject *Sender);
+
+	//Протатипы функции File (Вкладка MainMenu);
+	void __fastcall Save_AssClick(TObject *Sender); //Сохранить как
+	void __fastcall OpenClick(TObject *Sender); //Открыть
+	void __fastcall SaveClick(TObject *Sender); //Сохранить
+	void __fastcall CreateClick(TObject *Sender); //Создать
+	void __fastcall Page_SettingsClick(TObject *Sender); //Параметры страницы
+	void __fastcall PrintingClick(TObject *Sender); //Печать
+	void __fastcall ExitClick(TObject *Sender); //Выход
+
+	//Протатипы функции Edit (Вкладка MainMenu)
+	void __fastcall UndoClick(TObject *Sender); //Отмена
+	void __fastcall CutClick(TObject *Sender); //Вырезать
+	void __fastcall CopyClick(TObject *Sender); //Копировать
+	void __fastcall PasteClick(TObject *Sender); //Вставить
+	void __fastcall DeleteClick(TObject *Sender); //Удалить
+	void __fastcall BingClick(TObject *Sender); //Поиск с помощью Bing
+	void __fastcall FindClick(TObject *Sender); //Поиск
+	void __fastcall Find_NextClick(TObject *Sender); //Поиск далее
+	void __fastcall RepalceClick(TObject *Sender); //Замена
+	void __fastcall GoToClick(TObject *Sender); //Перейти
+	void __fastcall Selete_AllClick(TObject *Sender); //Выделить всё
+	void __fastcall Time_DateClick(TObject *Sender); //Время и дата
+
+	//Протатипы функции Формат (Вкладка MainMenu)
+	void __fastcall FontClick(TObject *Sender); //Цвет и шрифт, размер (Font)
+	void __fastcall Word_WrapClick(TObject *Sender); //Перенос Слов
+
+	//Протатипы функции Вид (Вкладка MainMenu)
+	void __fastcall to_EnlargeClick(TObject *Sender); //Увеличить шрифт
+	void __fastcall ReduceClick(TObject *Sender); //Уменьшить шрифт
+	void __fastcall Restore_to_defaultClick(TObject *Sender); //Вернуть по умолчанию
+
+	//Протатипы функции Справка (Вкладка MainMenu)
+	void __fastcall Viwe_HelpClick(TObject *Sender); //Посмотреть справку
+	void __fastcall About_the_ProgrammClick(TObject *Sender); //о программе...
+	void __fastcall FindDFind(TObject *Sender); //протатип функции замены
+	void __fastcall ReplaceDFind(TObject *Sender); //Замена F4
+	void __fastcall ReplaceDReplace(TObject *Sender); //Замена слов
+	void __fastcall ReviewClick(TObject *Sender);
+	void __fastcall NightSClick(TObject *Sender); //Отзыв
+	
+
+//---------------------------------------------------------------------------
+
+
+//-------------------Основные функции и переменные---------------------------
+private:	// User declarations
+public:		// User declarations
+	bool Saved; //Флашг сохранения
+	AnsiString FName, FPath, Xstr = "Стр ", Ystr = ", стлб "; //Путь и название файлов
+    int N, X, Y, FoundAt, StartPos, ToEnd;
+	int Size; //Размер шрифта в %
+	__fastcall TNotePadF(TComponent* Owner);
+	void __fastcall SavedTF(); //Протатип функции сохранения и проверки текста
+	void __fastcall PosCarriage(); //Позиция каретки
+    void __fastcall FindNP(); //Поиск слов
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TNotePadF *NotePadF;
+//---------------------------------------------------------------------------
+
+
+void __fastcall TNotePadF::SavedTF(){
+	FName = ExtractFileName(OpenTF->FileName); //Выдает имя файла
+	FPath = ExtractFilePath(OpenTF->FileName); //Выдает путь файла
+	if(!Saved && FName == "\0" && MText->Lines->Count > 0 && MessageDlg("Вы хотите сохранить данные?",
+		mtConfirmation  , TMsgDlgButtons() << mbNo << mbYes, 0) == mrYes && SaveTF->Execute()){//Проверяет, сохранён ли файл, если да, то выполняет след действия, если нет то спрашивает
+		MText->Lines->SaveToFile(SaveTF->FileName); //Сохраняет текст с MText (Memo)
+		Application->Title = "Блокнот"; //Переименовывает форму
+		}else if(!Saved && FName != "\0" && MText->Lines->Count > 0 && MessageDlg("Вы хотите сохранить изменения в файле " + FPath + FName,
+				mtConfirmation  , TMsgDlgButtons() << mbNo << mbYes, 0) == mrYes){
+				MText->Lines->SaveToFile(FPath+FName);
+				}
+	Saved = false;
+}
+
+void __fastcall TNotePadF::PosCarriage(){
+	X = MText->Perform(EM_LINEFROMCHAR, MText->SelStart, 0); //Присвоение X
+	Y = MText->SelStart - MText->Perform(EM_LINEINDEX, X, 0); //Присвоение Y
+		X += 1; //Не знаю почему так, но оно работает
+		Y += 1; //Не знаю почему так, но оно работает
+	StatusBar->Panels->Items[1]->Text = Xstr + X + Ystr + Y; //Инфо в статутс бар
+}
+
+void __fastcall TNotePadF::FindNP(){
+	StartPos = MText->SelStart; //Позиция старта поиска (Положение каретки)
+	Find_Next->Enabled = true; //Делает активную кнопку искать далее
+
+	if(MText->SelLength) //Проверяте где каретка
+		StartPos += MText->SelLength; //Даёт значение каретке
+		ToEnd = MText->Text.Length() - StartPos; //Ищет конец текста
+
+	//Поиск с учетом или без учета регистра
+	if(FindD->Options.Contains(frMatchCase))
+		FoundAt = StartPos + MText->Text.SubString(StartPos + 1, ToEnd).Pos(FindD->FindText);
+	else FoundAt = StartPos + MText->Text.SubString(StartPos + 1, ToEnd).LowerCase().Pos(FindD->FindText.LowerCase());
+
+	if(FoundAt != StartPos){
+		MText->SetFocus();
+		MText->SelStart = FoundAt-1;
+		MText->SelLength = FindD->FindText.Length();
+	}else ShowMessage("Не удалось найти \""  + FindD->FindText + "\"");
+		Application->Title = "Блокнот";
+}
+#endif

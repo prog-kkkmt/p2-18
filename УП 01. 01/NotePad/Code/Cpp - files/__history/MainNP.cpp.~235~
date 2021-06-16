@@ -1,0 +1,437 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "MainNP.h"
+#include "About.h"
+#include "ShellAPI.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+
+TNotePadF *NotePadF;
+//---------------------------------------------------------------------------
+__fastcall TNotePadF::TNotePadF(TComponent* Owner)
+	: TForm(Owner)
+{
+
+
+	NotePadF->Caption = "Безымянный — Блокнот"; //Заголовок по умолчанию
+	Size = 100;
+	//to_Enlarge->ShortCut = TextToShortCut("Ctrl+NUM +"); //Горячие клавиши +
+	//Reduce->ShortCut = TextToShortCut("Ctrl+NUM -"); //Горячие клавиши -
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TNotePadF::StatusBarResize(TObject *Sender)
+{
+	//Функция изминения и(или) растяжки формы Статус бара
+	StatusBar->Panels->Items[0]->Width = NotePadF->Width/1.20;
+}
+//---------------------------------------------------------------------------
+
+//------------Функция закрытие формы/сохранение параметров-------------------
+void __fastcall TNotePadF::FormClose(TObject *Sender, TCloseAction &Action)
+{
+	SavedTF();
+	TRegistry *reg = new TRegistry; //Создаем объект REG класса TREgistry
+	reg->RootKey = HKEY_LOCAL_MACHINE; //Раздел в котором будет работа
+	UnicodeString key = "SOFTWARE\\NotePadF"; //Путь для создания или открытия каталога
+
+	reg->CreateKey(key);
+	if(reg->OpenKey(key, true)){ //Создаем и(или) открываем уже существующий и(или) созданный каталог
+		reg->WriteInteger("WindowsPosDY", Left); //Левая сторона формы
+		reg->WriteInteger("WindowsPosDX", Top); //Вверх формы
+		reg->WriteInteger("WindowsPosX", Width); //Ширина формы
+		reg->WriteInteger("WindowsPosY", Height); //Длина Вормы
+
+		reg->WriteString("FontName", MText->Font->Name); //Сохранения шрифта
+		reg->WriteInteger("FontSize", MText->Font->Size); //Сохранения размера шрифта
+
+		reg->WriteBool("WordWrap", MText->WordWrap); //Перенос слов
+
+		reg->WriteBool("StatusBar", StatusBar->Visible); //Статус бар
+
+		reg->CloseKey(); //Закрытие ключа
+	}
+	delete reg; //Освобождаем память
+}
+//---------------------------------------------------------------------------
+
+//-----------Функция открытие формы/приминение параметров--------------------
+void __fastcall TNotePadF::FormCreate(TObject *Sender)
+{
+	TRegistry *reg = new TRegistry; //Создаем объект REG класса TREgistry
+	reg->RootKey = HKEY_LOCAL_MACHINE; //Раздел в котором будет работа
+	UnicodeString key = "SOFTWARE\\NotePadF"; //Путь для создания или открытия каталога
+
+		reg->CreateKey(key);
+		if(reg->OpenKey(key, true)){ //Создаем и(или) открываем уже существующий и(или) созданный каталог
+			Left =   reg->ReadInteger("WindowsPosDY"); //Присваивает сохраненное значение Левой Стороны формы
+			Top =    reg->ReadInteger("WindowsPosDX"); //Присваивает сохраненное значение Верхней Стороны формы
+			Width =  reg->ReadInteger("WindowsPosX"); //Присваивает сохраненное значение Ширифы формы
+			Height = reg->ReadInteger("WindowsPosY"); //Присваивает сохраненное значение Длины Стороны формы
+
+			MText->Font->Name = reg->ReadString("FontName"); //Применение шрифта мемо
+			MText->Font->Size = reg->ReadInteger("FontSize"); //Применение размера шрифта мемо
+			FontD->Font->Name = reg->ReadString("FontName"); //Применение шрифта фонту
+			FontD->Font->Size = reg->ReadInteger("FontSize"); //Применение размера шрифта фонту
+
+			MText->WordWrap = reg->ReadBool("WordWrap"); //Перенос слов
+
+			StatusBar->Visible = reg->ReadBool("StatusBar"); //Статус бар
+			reg->CloseKey(); //Закрытие ключа
+		}
+		delete reg;
+
+	if(!MText->WordWrap){ //Проверка значения с реестра
+	   MText->WordWrap = false; //Отключает перенос строки
+	   Word_Wrap->Checked = false; //Делает неактивной кнопку
+	   MText->ScrollBars = ssBoth; //Меняет Scroll Bar у MText(Memo1)
+	}
+	if(!StatusBar->Visible){ //Проверяет активна ли кнопка
+		StatusBar->Visible = false; //Статус бар неактивен
+		Status_Bar->Checked = false; //Делает кнопку не активной
+		MText->Height = NotePadF->Height - 60; //Смешает MText(Memo1) вниз
+	}
+}
+//---------------------------------------------------------------------------
+
+//---------------------------Функция создания--------------------------------
+void __fastcall TNotePadF::CreateClick(TObject *Sender)
+{
+	SavedTF(); //Вызывает функцию проверки
+	if(MText->Lines->Count > 0){MText->Clear();} //Чистит текст, если он есть
+	NotePadF->Caption = "Безымянный — Блокнот";
+}
+//---------------------------------------------------------------------------
+
+//---------------------------Функция открытия--------------------------------
+void __fastcall TNotePadF::OpenClick(TObject *Sender)
+{
+	SavedTF(); //Проверка сохранени и текста
+	if(OpenTF->Execute()){ //Вызывает диалоговое окно открытия
+		FName = ExtractFileName(OpenTF->FileName); //Дает название файла (Имя файла)
+		NotePadF->Caption = FName + " — Блокнот"; //Делает заголовок (Имя файла + Блокнот)
+
+		MText->Lines->LoadFromFile(OpenTF->FileName); //Выводит содержимое с файла в MText(Memo1)
+		Save->Enabled = true; //Делает активной кнопку сохранения (MainMenu)
+		Saved = false; //Ставит флаг сохранения False
+	}
+}
+//---------------------------------------------------------------------------
+
+//---------------------------Функция Сохранения------------------------------
+void __fastcall TNotePadF::SaveClick(TObject *Sender)
+{
+	MText->Lines->SaveToFile(FPath + FName); //Сохраняет файл (Недоступно, если не была сохранена как/открыта)
+	Caption = "" + FName + " — Блокнот";
+	Saved = true; //Ставит флаг TRUE у Bool Saved
+}
+//---------------------------------------------------------------------------
+
+//--------------------------Функция сохранения как---------------------------
+void __fastcall TNotePadF::Save_AssClick(TObject *Sender)
+{
+	if(!Saved && SaveTF->Execute()){
+		MText->Lines->SaveToFile(SaveTF->FileName); //Сохраняет весь текст в файл
+
+		Save->Enabled = true; //Делает кнопку Save Активной
+		Saved = true; //Флаг сохранения True
+
+		FName = ExtractFileName(SaveTF->FileName); //Даёт название файла
+		NotePadF->Caption = FName + " — Блокнот"; //Переименовывает форму
+	}
+}
+//---------------------------------------------------------------------------
+
+//------------------------Параметры страницы---------------------------------
+void __fastcall TNotePadF::Page_SettingsClick(TObject *Sender)
+{
+	if(PageSetupD->Execute()){}; //Вызывает диалоговое окно Параметры страницы
+}
+//---------------------------------------------------------------------------
+
+//-------------------------Функция Печати------------------------------------
+void __fastcall TNotePadF::PrintingClick(TObject *Sender)
+{
+	if(PrintD->Execute()){}; //Вызывает диалоговое окно Печать
+}
+//---------------------------------------------------------------------------
+
+//-------------------------Функция Выход-------------------------------------
+void __fastcall TNotePadF::ExitClick(TObject *Sender)
+{
+	SavedTF(); //Проверка сохранения и текста
+	Close(); //Закрытие формы
+}
+//---------------------------------------------------------------------------
+
+//------------------------Функция отмены-------------------------------------
+void __fastcall TNotePadF::UndoClick(TObject *Sender)
+{
+	MText->Undo(); //Отмена
+}
+//---------------------------------------------------------------------------
+
+//------------------------Функция вырезать-----------------------------------
+void __fastcall TNotePadF::CutClick(TObject *Sender)
+{
+	MText->CutToClipboard(); //Вырезает выделенный текст
+}
+//---------------------------------------------------------------------------
+
+//---------------------Функция Копировать------------------------------------
+void __fastcall TNotePadF::CopyClick(TObject *Sender)
+{
+	MText->CopyToClipboard(); //Копирует выделенный текст
+}
+//---------------------------------------------------------------------------
+
+//--------------------Функция Вставить---------------------------------------
+void __fastcall TNotePadF::PasteClick(TObject *Sender)
+{
+	MText->PasteFromClipboard(); //Вставляет выделенный текст
+}
+//---------------------------------------------------------------------------
+
+//-------------------Функция Удаления----------------------------------------
+void __fastcall TNotePadF::DeleteClick(TObject *Sender)
+{
+    MText->ClearSelection(); //Удаляет выделенный текст
+}
+//---------------------------------------------------------------------------
+
+//--------------------Поиск с помощью Bing-----------------------------------
+void __fastcall TNotePadF::BingClick(TObject *Sender)
+{
+	AnsiString Word = MText->SelText; //Переменная для выделения слова в MText
+	AnsiString URL = "https://www.bing.com/search?q=" + Word; //Добовляет слово к поиску
+	ShellExecute(Handle, L"open", String(URL).c_str(), NULL, NULL, SW_SHOWDEFAULT); //Открывает вкладку с запросом
+}
+//---------------------------------------------------------------------------
+
+//-------------------Кнопка Найти-------------------------------------------
+void __fastcall TNotePadF::FindClick(TObject *Sender)
+{
+	FindD->FindText = MText->SelText; //Выделяет весь текст в Memo (MText)
+	FindD->Execute();//Передает в функцию FindDFind
+}
+//---------------------------------------------------------------------------
+
+//-------------------Функция Найти-------------------------------------------
+void __fastcall TNotePadF::FindDFind(TObject *Sender)
+{
+	FindNP();
+}
+//---------------------------------------------------------------------------
+
+//-------------------Функция Найти Далее-------------------------------------
+void __fastcall TNotePadF::Find_NextClick(TObject *Sender)
+{
+	FindNP();
+}
+//---------------------------------------------------------------------------
+
+//-------------------Функция Заменить----------------------------------------
+void __fastcall TNotePadF::RepalceClick(TObject *Sender)
+{
+	ReplaceD->FindText = MText->SelText; //Выделяет весь текст в Memo (MText)
+	ReplaceD->Execute(); //Вызывает диалоговое окно замены
+}
+//---------------------------------------------------------------------------
+
+//-------------------Функция Заменить----------------------------------------
+ void __fastcall TNotePadF::ReplaceDReplace(TObject *Sender)
+{
+	if (MText->SelText != "") //проверяет есть ли выделенный текст
+		MText->SelText = ReplaceD->ReplaceText;
+
+	else if(ReplaceD->Options.Contains(frReplace)){
+		ShowMessage("Не удалось найти\"" + ReplaceD->FindText +  "\"");
+		Application->Title = "Блокнот";
+		return;
+	}
+
+	if(ReplaceD->Options.Contains(frReplaceAll)) //Возвращается в исходную функцию
+	ReplaceDFind(Sender);
+
+}
+//---------------------------------------------------------------------------
+
+//-------------------Функция Заменить-----------------------------------------
+void __fastcall TNotePadF::ReplaceDFind(TObject *Sender)
+{
+	FoundAt = 0; //Позиция каретки в начало
+	StartPos = MText->SelStart; //СТартовая позиция
+
+	if(MText->SelStart) //Проверяет положение каретки
+		StartPos += MText->SelLength; //Стартовая позиция = положению каретки
+		ToEnd = MText->Text.Length() - StartPos; //Конецное положение текста
+
+	//Поиск с учетом или без учета регистра
+	if(FindD->Options.Contains(frMatchCase))
+		FoundAt = StartPos + MText->Text.SubString(StartPos+1, ToEnd).Pos(ReplaceD->FindText);
+	else FoundAt = StartPos + MText->Text.SubString(StartPos+1, ToEnd).LowerCase().Pos(ReplaceD->FindText.LowerCase());
+
+	if(FoundAt != StartPos){
+		MText->SetFocus();
+		MText->SelStart = FoundAt-1; //Уводит каретку по тексту
+		MText->SelLength = ReplaceD->FindText.Length(); //Ищет и меняет текст
+	}else{
+		ShowMessage("Не удалось найти \""  + ReplaceD->FindText + "\""); //Выводит диалоговое окно с ошибкой
+		Application->Title = "Блокнот"; //Делает название Д.О.
+		MText->SetFocus(); //Ставит фокус на Memo (MText)
+		MText->CaretPos = Point(0, 0); //Позиция каретки на 0 0
+		return;
+	 }
+
+	if(ReplaceD->Options.Contains(frReplaceAll)) //В случае нажатие кнопки Заменить всё
+		ReplaceDReplace(Sender); //Вызывает функцию ReplaceDReplace
+}
+//---------------------------------------------------------------------------
+
+//-------------------Функция Перейти-----------------------------------------
+void __fastcall TNotePadF::GoToClick(TObject *Sender)
+{
+1;
+}
+//---------------------------------------------------------------------------
+
+//-------------------Функция Выделить всё------------------------------------
+void __fastcall TNotePadF::Selete_AllClick(TObject *Sender)
+{
+	MText->SelectAll();
+}
+//---------------------------------------------------------------------------
+
+//-------------------Функция Времени и Даты----------------------------------
+void __fastcall TNotePadF::Time_DateClick(TObject *Sender)
+{
+    MText->Lines->Add(Time().FormatString("hh:mm") + " " + Date());
+}
+//---------------------------------------------------------------------------
+
+//------------------------Функция переноса слов------------------------------
+void __fastcall TNotePadF::Word_WrapClick(TObject *Sender)
+{
+	if(Word_Wrap->Checked == True){
+		MText->WordWrap = false; //Отключает перенос строки
+		Word_Wrap->Checked = false; //Делает неактивной кнопку
+		MText->ScrollBars = ssBoth; //Меняет Scroll Bar у MText(Memo1)
+	}else{ //если if не выполнилось, то включает перенос и убирает Scroll Bar
+		MText->WordWrap = true; //Включаем перенос строки
+		Word_Wrap->Checked = true; //Делает активной кнопку
+		MText->ScrollBars = ssVertical; //Меняет Scroll Bar у MText(Memo1)
+	 }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TNotePadF::FontClick(TObject *Sender)
+{
+	if(FontD->Execute()){MText->Font = FontD->Font;}; //Вызывает диалоговое окно шрифта
+}
+//---------------------------------------------------------------------------
+
+//--------------------Функция увеличения шрифта------------------------------
+void __fastcall TNotePadF::to_EnlargeClick(TObject *Sender)
+{
+	if(Size < 500){ //Проверяет значения, чтоб то не было более 500
+		MText->Font->Size += 1; //Прибавляет 1 еденицу к исходному
+		StatusBar->Panels->Items[2]->Text = IntToStr(Size += 10) + "%"; //Выводит в статус бар информацию
+	}
+}
+//---------------------------------------------------------------------------
+
+//--------------------Функция уменьшения шрифта------------------------------
+void __fastcall TNotePadF::ReduceClick(TObject *Sender)
+{
+	if (Size > 10){ //Проверка значения
+		MText->Font->Size -= 1; //Убавляет исходный шрифт на -1
+		StatusBar->Panels->Items[2]->Text = IntToStr(Size -= 10) + "%"; //Выводит Ифно о состоянии в %
+	}
+}
+//---------------------------------------------------------------------------
+
+//--------------------Функция восстановления шрифта--------------------------
+void __fastcall TNotePadF::Restore_to_defaultClick(TObject *Sender)
+{
+	Size = 100; //Изначальные 100% шрифта
+	MText->Font->Size = 11; //Восстанавливает размер шрифта
+	StatusBar->Panels->Items[2]->Text = "100%"; //Выводит инфо в статус бар
+}
+//---------------------------------------------------------------------------
+
+//-------------------Функция отображения статус бара-------------------------
+void __fastcall TNotePadF::Status_BarClick(TObject *Sender)
+{
+	if(Status_Bar->Checked == true){ //Проверяет активна ли кнопка
+		StatusBar->Visible = false; //Статус бар неактивен
+		Status_Bar->Checked = false; //Делает кнопку не активной
+		MText->Height = NotePadF->Height - 60; //Смешает MText(Memo1) вниз
+	}else{
+		StatusBar->Visible = true; //Статуст бар активен
+		Status_Bar->Checked = true; //Делает кнопку активной
+		MText->Height = NotePadF->Height - 78; //Поднимает MText(Memo1) вверх
+	 }
+}
+//---------------------------------------------------------------------------
+
+//---------------------Функция открытия справки------------------------------
+void __fastcall TNotePadF::Viwe_HelpClick(TObject *Sender)
+{
+	ShellExecute(Handle, L"open", L"Help.html", NULL, NULL, SW_RESTORE); //Открывает файл со справкой
+}
+//---------------------------------------------------------------------------
+
+//-----------------------Форма о программе-----------------------------------
+void __fastcall TNotePadF::About_the_ProgrammClick(TObject *Sender)
+{
+	About_the_program->ShowModal(); //Открытие формы About
+}
+//---------------------------------------------------------------------------
+
+//---------------------------Кнопка отзыв------------------------------------
+void __fastcall TNotePadF::N1Click(TObject *Sender)
+{
+	AnsiString URL = "https://forms.gle/boTBURPbK5tQEzWZ7";
+	ShellExecute(Handle, L"open", String(URL).c_str(), NULL, NULL, SW_SHOWDEFAULT);
+}
+//---------------------------------------------------------------------------
+
+//-------------------Функция отображения позиции коретки---------------------
+void __fastcall TNotePadF::MTextKeyUp(TObject *Sender, WORD &Key, TShiftState Shift)
+{
+	PosCarriage();
+}
+//---------------------------------------------------------------------------
+
+//------------------Изминение и нажатие на MText-----------------------------
+void __fastcall TNotePadF::MTextChange(TObject *Sender)
+{
+    Saved = false;
+	PosCarriage();
+	Undo->Enabled = true;
+
+	if(!Saved && MText->Modified == true && FName != "\0"){ //Проверка на изминение текста
+		Caption = "*" + FName + " — Блокнот"; //Добавляет значёк *
+	}
+
+	Undo->Enabled = true;
+	Cut->Enabled = true;
+	Copy->Enabled = true;
+	Delete->Enabled = true;
+	Find->Enabled = true;
+
+}
+//---------------------------------------------------------------------------
+
+//----------------------------Нажатие на MText-------------------------------
+void __fastcall TNotePadF::MTextClick(TObject *Sender)
+{
+	PosCarriage();
+}
+//---------------------------------------------------------------------------
+

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.275,E:\Программирование\Проекты\NotePad\Project\TInfo.htm=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.474,C:\Users\Иван\Documents\Embarcadero\Studio\Projects\Project1.cbproj=E:\Программирование\Проекты\NotePad\Project\NotePad.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.554,E:\Программирование\Проекты\NotePad\Project\Unit1.dfm=E:\Программирование\Проекты\NotePad\Code\Cpp - files\About.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.672,E:\Программирование\Проекты\NotePad\Project\Unit1.dfm=E:\Программирование\Проекты\NotePad\Code\Cpp - files\About.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.398,E:\Программирование\Проекты\NotePad\Project\Untitled1.html=E:\Программирование\Проекты\NotePad\Project\HelpProgramm.html</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.390,E:\Программирование\Проекты\NotePad\Project\Untitled1.htm=E:\Программирование\Проекты\NotePad\Project\help.htm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.522,E:\Программирование\Проекты\NotePad\Project\HelpProgramm.html=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.442,=C:\Users\Иван\Documents\Embarcadero\Studio\Projects\Project1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.756,C:\Users\Иван\Documents\Embarcadero\Studio\Projects\Project1PCH1.h=E:\Программирование\Проекты\NotePad\Code\H - files\NP_1PCH1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.287,C:\Users\Иван\Documents\Embarcadero\Studio\Projects\Unit1.h=E:\Программирование\Проекты\NotePad\Code\Cpp - files\MainNP.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.416,=E:\Программирование\Проекты\NotePad\Project\Untitled1.xml</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.047,E:\Программирование\Проекты\NotePad\Project\Untitled1.xml=E:\Программирование\Проекты\NotePad\Project\1.xml</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.558,=C:\Users\Иван\Documents\Embarcadero\Studio\Projects\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.287,C:\Users\Иван\Documents\Embarcadero\Studio\Projects\Unit1.cpp=E:\Программирование\Проекты\NotePad\Code\Cpp - files\MainNP.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.600,E:\Программирование\Проекты\NotePad\Code\Cpp - files\File.cpp=E:\Программирование\Проекты\NotePad\Project\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.593,E:\Программирование\Проекты\NotePad\Code\Cpp - files\File.h=E:\Программирование\Проекты\NotePad\Project\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.600,E:\Программирование\Проекты\NotePad\Code\Cpp - files\File.h=E:\Программирование\Проекты\NotePad\Project\Unit1.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.488,E:\Программирование\Проекты\NotePad\Code\Cpp - files\File.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.593,E:\Программирование\Проекты\NotePad\Code\Cpp - files\File.cpp=E:\Программирование\Проекты\NotePad\Project\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.429,=E:\Программирование\Проекты\NotePad\Project\Untitled1.htm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.480,E:\Программирование\Проекты\NotePad\Project\help.html=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.745,=E:\Программирование\Проекты\NotePad\Project\File1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.016,E:\Программирование\Проекты\NotePad\Project\1.xml=E:\Программирование\Проекты\NotePad\Project\Help.xml</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.554,E:\Программирование\Проекты\NotePad\Project\Unit1.cpp=E:\Программирование\Проекты\NotePad\Code\Cpp - files\About.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.490,E:\Программирование\Проекты\NotePad\Code\Cpp - files\About.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.554,E:\Программирование\Проекты\NotePad\Project\Unit1.h=E:\Программирование\Проекты\NotePad\Code\Cpp - files\About.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.672,E:\Программирование\Проекты\NotePad\Project\Unit1.h=E:\Программирование\Проекты\NotePad\Code\Cpp - files\About.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.065,E:\Программирование\Проекты\NotePad\Code\Cpp - files\About.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.536,=E:\Программирование\Проекты\NotePad\Code\Cpp - files\About.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.672,E:\Программирование\Проекты\NotePad\Project\Unit1.cpp=E:\Программирование\Проекты\NotePad\Code\Cpp - files\About.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.100,=E:\Программирование\Проекты\NotePad\Project\Untitled1.htm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.060,=E:\Программирование\Проекты\NotePad\Project\Untitled1.htm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.253,E:\Программирование\Проекты\NotePad\Project\Untitled1.htm=E:\Программирование\Проекты\NotePad\Project\TInfo.htm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.081,E:\Программирование\Проекты\NotePad\Project\Untitled1.htm=E:\Программирование\Проекты\NotePad\Project\Untitled1.htm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.287,C:\Users\Иван\Documents\Embarcadero\Studio\Projects\Unit1.dfm=E:\Программирование\Проекты\NotePad\Code\Cpp - files\MainNP.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.824,=E:\Программирование\Проекты\NotePad\Project\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.045,=E:\Программирование\Проекты\NotePad\Project\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.893,=E:\Программирование\Проекты\NotePad\Project\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.640,=E:\Программирование\Проекты\NotePad\Project\Unit1.cpp</Transaction>
+  </Transactions>
+</BorlandProject>
