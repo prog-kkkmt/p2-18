@@ -1,5 +1,3 @@
-# Разработчики: Дмитрий Герасимов и Роман груздев 
-
 from tkinter import *
 from tkinter import messagebox
 import tkinter as tk
