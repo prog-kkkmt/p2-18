@@ -1,0 +1,79 @@
+<!DOCTYPE html> 
+<html> <!-- служебная часть --> 
+
+<head>
+<!-- заголовок страницы -->
+<title>Текстовый редактор</title>
+<!-- настраиваем служебную информацию для браузеров -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- задаём CSS-стили прямо здесь же, чтобы всё было в одном файле -->
+<style type="text/css">
+/*задаём общие параметры для всей страницы: шрифт и отступы*/
+body {
+text-align: left;
+margin: 10;
+font-family: Courier New, Courier;
+font-size: 20px;
+background-color: lightgray;
+}
+
+/* оформляем окно редактора */
+.editorSheet {
+width: 80vw;
+min-height: 100vw;
+margin-left: 10vw;
+border: solid;
+border-width: 0px;
+text-align: left;
+background-color: white;
+-webkit-box-shadow: 6px 10px 9px 0px rgba(0, 0, 0, 0.75);
+-moz-box-shadow: 6px 10px 9px 0px rgba(0, 0, 0, 0.75);
+box-shadow: 6px 10px 9px 0px rgba(0, 0, 0, 0.75);
+padding: 15px;
+}
+
+h1 {
+font-size: 40px;
+font-family: Tahoma;
+font-weight: 900;
+}
+
+/*закончили со стилями*/
+</style>
+<!-- закрываем служебную часть страницы -->
+</head>
+<!-- началось содержимое страницы -->
+
+<body>
+<!-- началась видимая часть -->
+<!-- заголовок страницы -->
+<h1>Текстовый редактор с автосохранением</h1>
+<!-- большой блок для ввода текста: высота в половину, а ширина — во весь экран, назвывается "text_area", обведено рамкой толщиной в 1 пиксель, выравнивание текста — по левому краю -->
+<div id="editor" contenteditable="true" class="editorSheet">
+</div>
+<!-- закончилась видимая часть -->
+<!-- пишем скрипт, который будет постоянно сохранять наш текст -->
+<script>
+let Panel = class {
+	work() {
+		// если в нашем хранилище уже что-то есть…
+		if (localStorage.getItem('text_in_editor') !== null) {
+		// …то отображаем его содержимое в нашем редакторе
+		document.getElementById('editor').innerHTML = localStorage.getItem('text_in_editor');
+		}
+		// отслеживаем каждое нажатие клавиши и при каждом нажатии выполняем команду
+		document.addEventListener('keydown', function (e) {
+		// записываем содержимое нашего редактора в хранилище
+		localStorage.setItem('text_in_editor', document.getElementById('editor').innerHTML);
+		});
+		// закончился скрипт
+	};
+};
+new Panel().work();
+</script>
+<!-- закончилось содержимое страницы -->
+</body>
+<!-- конец всего HTML-документа -->
+</html>
