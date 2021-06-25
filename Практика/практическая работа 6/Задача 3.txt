@@ -1,0 +1,5 @@
+#Выполнил задание Яковлев Прокопий Максимович
+import math
+a = int(input())
+s = math.sqrt(3)/4*a**2
+print(s)
