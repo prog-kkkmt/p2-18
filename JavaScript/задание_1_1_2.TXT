@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<body>
+    
+    <script>
+    let name = prompt ("Вас зовут ?", '');
+    alert (`Хорошего вам дня ${name}!`);
+    </script>
+    
+</body>
+</html>
