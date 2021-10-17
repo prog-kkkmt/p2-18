@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+    
+    <script>
+    function checkAge(age)
+    {
+        if (age > 18)
+    {
+        return true;
+    }
+    else
+    {
+        return confirm('Родители разрешили?');
+    }
+    }
+    </script>
+
+</body>
+</html>
