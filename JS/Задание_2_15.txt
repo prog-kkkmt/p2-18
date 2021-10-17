@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+	    function showMessage() 
+	    {
+            alert( 'Я ФУНКЦИЯ' );
+        }
+        showMessage();
+        
+	</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+	    let sum = (a, b) => a + b;
+        alert(sum(2, 3));
+	</script>
+</body>
+</html>
