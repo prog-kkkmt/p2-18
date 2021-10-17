@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+	let i = 0;
+    while (i < 5) { // выводит 0, затем 1, затем 2
+    alert( i );
+    i++;
+    }
+	</script>
+</body>
+</html>

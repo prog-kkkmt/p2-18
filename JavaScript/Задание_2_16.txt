@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+	    let say = function() {
+            alert( "Я В ФУНКЦИИ" );
+        };
+        
+        alert( say ); // выведет код функции
+	</script>
+</body>
+</html>

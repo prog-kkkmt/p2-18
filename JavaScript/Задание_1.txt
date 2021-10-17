@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+	let name = "JavaScript";
+	alert (`Выведет ${1}`); // Выведет 1
+	alert (`Основы ${'name'}`); // Основы name
+	alert (`Основы ${name}`); // Основы JavaScript
+    </script>
+</body>
+</script>
+</html>

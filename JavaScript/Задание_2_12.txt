@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+	let firstName;
+    let lastName = null;
+    let nickName = "Суперкодер";
+
+    // показывает первое определённое значение:
+    alert(firstName ?? lastName ?? nickName ?? "Аноним"); // Суперкодер
+	</script>
+</body>
+</html>
