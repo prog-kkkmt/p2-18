@@ -1,0 +1,76 @@
+Sub z1()
+' Выдать список всех типов данных
+' Выполнили студенты: Бурлаев З.С., Грушником К.С., Толоконников А.М.
+' Группа: П2-18
+Dim M As String
+Dim item As Integer
+    M = "1. Integer" + vbNewLine + "2.Long" + vbNewLine + "3.Single" _
+    + vbNewLine + "4.Double" + vbNewLine + "5.Currency" + vbNewLine + "6.String" _
+    + vbNewLine + "7.Byte" + vbNewLine + "8.Boolean" + vbNewLine + "9.Date" _
+    + vbNewLine + "10.Object" + vbNewLine + "11.Variant"
+Dim I As String, L As String, S As String, D As String, C As String, _
+Str As String, B As String, Bool As String, Da As String, O As String, V As String
+' Int
+    I = "Int" + vbNewLine + "1. Сложение а+b" + vbNewLine + "2. Вычитание a-b" + vbNewLine + "3. Деление a/b" _
+    + vbNewLine + "4. Умножение a*b"
+' Long
+    L = "Long" + vbNewLine + "1. Сложение а+b" + vbNewLine + "2. Вычитание a-b" + vbNewLine + "3. Деление a/b" _
+    + vbNewLine + "4. Умножение a*b"
+' Single
+    S = "Single" + vbNewLine + "1. Сложение а+b" + vbNewLine + "2. Вычитание a-b" + vbNewLine + "3. Деление a/b" _
+    + vbNewLine + "4. Умножение a*b"
+' Double
+    D = "Double" + vbNewLine + "1. Сложение а+b" + vbNewLine + "2. Вычитание a-b" + vbNewLine + "3. Деление a/b" _
+    + vbNewLine + "4. Умножение a*b"
+' Currency
+    C = "Currency" + vbNewLine + "1. Сложение а+b" + vbNewLine + "2. Вычитание a-b" + vbNewLine + "3. Деление a/b" _
+    + vbNewLine + "4. Умножение a*b"
+' String
+    Str = "String" + vbNewLine + "1. Сложение а+b" + vbNewLine + "2. Вычитание a-b"
+' Byte
+    B = "Byte" + vbNewLine + "1. Сложение а+b" + vbNewLine + "2. Вычитание a-b" + vbNewLine + "3. Деление a/b" _
+    + vbNewLine + "4. Умножение a*b"
+' Bool
+    Bool = "Bool" + vbNewLine + "1. Сравнение а<b или a>b или a==b" + vbNewLine + "2. Oтрицание !a"
+' Date
+    Da = "Date" + vbNewLine + "1. Сложение а+b" + vbNewLine + "2. Вычитание a-b" + vbNewLine + "3. Деление a/b" _
+    + vbNewLine + "4. Умножение a*b"
+' Object
+    O = "Object" + vbNewLine + "1. Присваевание a=b"
+' Variant
+    V = "Variant" + vbNewLine + "1. Присваевание a=b" + vbNewLine + "2. Сравнение а<b или a>b или a==b"
+    item = -1
+    Do While item <> 0
+        MsgBox (M)
+        item = InputBox("")
+        Select Case item
+            Case 0
+                MsgBox ("Bye")
+            Case 1
+                MsgBox (I)
+            Case 2
+                MsgBox (L)
+            Case 3
+                MsgBox (S)
+            Case 4
+                MsgBox (D)
+            Case 5
+                MsgBox (C)
+            Case 6
+                MsgBox (Str)
+            Case 7
+                MsgBox (B)
+            Case 8
+                MsgBox (Bool)
+            Case 9
+                MsgBox (Da)
+            Case 10
+                MsgBox (O)
+            Case 11
+                MsgBox (V)
+            Case Else
+                MsgBox ("Ошибка")
+        End Select
+    Loop
+
+End Sub
