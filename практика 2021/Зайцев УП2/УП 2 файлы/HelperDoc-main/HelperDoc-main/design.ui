@@ -1,0 +1,1378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HelperDoc</class>
+ <widget class="QMainWindow" name="HelperDoc">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1324</width>
+    <height>893</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #181818;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="minimumSize">
+       <size>
+        <width>400</width>
+        <height>800</height>
+       </size>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>381</width>
+         <height>1850</height>
+        </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>1850</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>0</height>
+        </size>
+       </property>
+       <widget class="QFrame" name="frame">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>400</width>
+          <height>1880</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>400</width>
+          <height>1880</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>400</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <widget class="QPushButton" name="add_row">
+         <property name="geometry">
+          <rect>
+           <x>200</x>
+           <y>1750</y>
+           <width>91</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: #2C2C2C;
+	color: #fff;
+	text-align: center;
+	padding-bottom: 1px;
+	border: 0;
+}
+
+QPushButton:hover {
+	background-color: #353535;
+}
+QPushButton:pressed {
+	background-color: #3F3F3F;
+}</string>
+         </property>
+         <property name="text">
+          <string>Добавить</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="title_doc_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>70</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="title_doc">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>50</y>
+           <width>141</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Наименование документа</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="type_doc_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>130</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+        <widget class="QLabel" name="type_doc">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>110</y>
+           <width>141</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Вид документа</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="status_doc_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>190</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="status_doc">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>170</y>
+           <width>141</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Статус документа</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="loss_confirmation">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>230</y>
+           <width>141</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Подтверждение утраты</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="loss_confirmation_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>250</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="confirmation_exchange_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>310</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="confirmation_exchange">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>290</y>
+           <width>141</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Подтверждение обмена</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="destruction_confirmation_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>370</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="destruction_confirmation">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>350</y>
+           <width>161</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Подтверждение  уничтожения</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="education_level">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>410</y>
+           <width>161</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Уровень образования</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="education_level_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>430</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="series_doc_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>490</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="series_doc">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>470</y>
+           <width>161</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Серия документа</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="number_doc_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>550</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="number_doc">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>530</y>
+           <width>161</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Номер документа</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="issue_date">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>590</y>
+           <width>161</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Дата выдачи</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="issue_date_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>610</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="registration_number_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>670</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="registration_number">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>650</y>
+           <width>161</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Регистрационный номер</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="code_profession_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>730</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="title_profession_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>790</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="code_profession">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>710</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Код профессии, специальности</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="title_qualification_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>850</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="education_program_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>910</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="title_profession">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>770</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Наименование профессии, специальности</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="title_qualification">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>830</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Наименование квалификации</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="education_program">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>890</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Наименование образовательной программы</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="admission_year_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>970</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="graduation_year_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1030</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="study_period_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1090</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="admission_year">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>950</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Год поступления</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="graduation_year">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1010</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Год окончания</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="study_period">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1070</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Срок обучения, лет</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="last_name_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1150</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="name_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1210</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="middle_name_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1270</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="birth_date_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1330</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="gender_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1390</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="snills_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1450</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="last_name">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1130</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Фамилия получателя</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="name">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1190</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Имя получателя</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="middle_name">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1250</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Отчество получателя</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="birth_date">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1310</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Дата рождения получателя</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="gender">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1370</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Пол получателя</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="snills">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1430</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>СНИЛС</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="country_code_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1510</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="education_form_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1570</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="education_receipt_form_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1630</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="financing_source_line">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1690</y>
+           <width>271</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="country_code">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1490</y>
+           <width>291</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Гражданство получателя (код страны по ОКСМ)</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="education_form">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1550</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Форма обучения</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="education_receipt_form">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1610</y>
+           <width>251</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Форма получения образования&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="financing_source">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>1670</y>
+           <width>251</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: #fff;</string>
+         </property>
+         <property name="text">
+          <string>Источник финансирования обучения</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="clear">
+         <property name="geometry">
+          <rect>
+           <x>70</x>
+           <y>1750</y>
+           <width>91</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: #2C2C2C;
+	color: #fff;
+	text-align: center;
+	padding-bottom: 1px;
+	border: 0;
+}
+
+QPushButton:hover {
+	background-color: #353535;
+}
+QPushButton:pressed {
+	background-color: #3F3F3F;
+}</string>
+         </property>
+         <property name="text">
+          <string>Очистить</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame_2">
+      <property name="minimumSize">
+       <size>
+        <width>900</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QTableWidget" name="table">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>140</y>
+         <width>901</width>
+         <height>601</height>
+        </rect>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #fff;</string>
+       </property>
+       <column>
+        <property name="text">
+         <string>Наименование документа</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Вид документа</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Статус документа</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Подтверждение утраты</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Подтверждение обмена </string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Подтверждение уничтожения</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Уровень образования</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Серия документа</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Номер документа</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Дата выдачи</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Регистрационный номер</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Код профессии, специальности</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Наименование профессии, специальности</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Наименование квалификации</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Наименование образовательной  программы</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Год поступления</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Год окончания</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Срок обучения, лет</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Фамилия получателя</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Имя получателя</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Отчество получателя</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Дата рождения получателя </string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Пол получателя</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>СНИЛС</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Гражданство получателя (код страны по ОКСМ)</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Форма обучения</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Форма получения образования на момент прекращения образовательных отношений</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Источник финансирования обучения</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QLineEdit" name="suggest_input">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>70</y>
+         <width>511</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+	color: #fff;
+	padding-left: 10px;
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="remove_row">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>790</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #2C2C2C;
+	color: #fff;
+	text-align: center;
+	padding-bottom: 1px;
+	border: 0;
+}
+
+QPushButton:hover {
+	background-color: #353535;
+}
+QPushButton:pressed {
+	background-color: #3F3F3F;
+}</string>
+       </property>
+       <property name="text">
+        <string>Удалить</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="suggest_input_button">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>70</y>
+         <width>71</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>MS Shell Dlg 2</family>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
+         <underline>false</underline>
+         <strikeout>false</strikeout>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #2C2C2C;
+	color: #fff;
+	text-align: center;
+	border: 0;
+}
+
+QPushButton:hover {
+	background-color: #353535;
+}
+QPushButton:pressed {
+	background-color: #3F3F3F;
+}</string>
+       </property>
+       <property name="text">
+        <string>Искать</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="create_doc">
+       <property name="geometry">
+        <rect>
+         <x>480</x>
+         <y>790</y>
+         <width>151</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: #2C2C2C;
+	color: #fff;
+	text-align: center;
+	padding-bottom: 1px;
+	border: 0;
+}
+
+QPushButton:hover {
+	background-color: #353535;
+}
+QPushButton:pressed {
+	background-color: #3F3F3F;
+}</string>
+       </property>
+       <property name="text">
+        <string>Создать документ</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
