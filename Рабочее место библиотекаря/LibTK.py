@@ -1,39 +1,6 @@
 from tkinter import *
 import sqlite3
 
-# Создание классов для кнопоки "Страны"
-class ButtonsCountry:
-    def __init__(self, var, px, py):
-
-        self.i = 0
-        self.var = var
-        self.turn = IntVar()
-        self.Manufacturerbuttons = Checkbutton(text=self.var, command=self.Manufacturerbutton,
-                                               background="gray22", foreground="#ccc", activebackground="#333333",
-                                       variable=self.turn).place(x=px, y=py)
-
-    # Сортировка и отображение
-    def Manufacturerbutton(self):
-        global grid
-        conn = sqlite3.connect('LibTable')
-        curs = conn.cursor()
-        if self.turn.get() == 1:
-            self.i = grid.index('')
-            grid[self.i] = self.var
-        else:
-            grid[self.i] = ''
-        *gridAuto, = curs.execute("""SELECT *
-                                        FROM Lib
-                                        WHERE Country IN (?, ?, ?, ?, ?, ?)
-                                        ORDER BY Country""", grid)
-        mainlist.delete(0, END)
-        for i in gridAuto:
-            *i, = i
-            rowtext.set(str(i[0]) + ' ' + str(i[1]) + '' + \
-                        str(i[2]) + '   ' + str(i[3]) + '   ' + \
-                        str(i[4]) + '   ' + str(i[5]))
-            mainlist.insert(END, rowtext.get())
-
 #----------------------------------------------------------
 # Функци для кнопок "Показать"
 def getk():
@@ -49,8 +16,7 @@ def getk():
     for i in gridAuto:
         *i, = i
         rowtext.set(str(i[0]) + ' ' + str(i[1]) + '' + \
-                    str(i[2]) + '   ' + str(i[3]) + '   ' + \
-                    str(i[3]) + '   ' + str(i[4]))
+                    str(i[2]) + '   ' + str(i[3]))
         mainlist.insert(END, rowtext.get())
 
 def geth():
@@ -66,8 +32,7 @@ def geth():
     for i in gridAuto:
         *i, = i
         rowtext.set(str(i[0]) + ' ' + str(i[1]) + '' + \
-                    str(i[2]) + '   ' + str(i[3]) + '   ' + \
-                    str(i[3]) + '   ' + str(i[4]))
+                    str(i[2]) + '   ' + str(i[3]))
         mainlist.insert(END, rowtext.get())
 
 def getplayer():
@@ -83,8 +48,7 @@ def getplayer():
     for i in gridAuto:
         *i, = i
         rowtext.set(str(i[0]) + ' ' + str(i[1]) + '' + \
-                    str(i[2]) + '   ' + str(i[3]) + '   ' + \
-                    str(i[3]) + '   ' + str(i[4]))
+                    str(i[2]) + '   ' + str(i[3]))
         mainlist.insert(END, rowtext.get())
 
 def getAuthor():
@@ -100,8 +64,7 @@ def getAuthor():
     for i in gridAuto:
         *i, = i
         rowtext.set(str(i[0]) + ' ' + str(i[1]) + '' + \
-                    str(i[2]) + '   ' + str(i[3]) + '   ' + \
-                    str(i[3]) + '   ' + str(i[4]))
+                    str(i[2]) + '   ' + str(i[3]))
         mainlist.insert(END, rowtext.get())
 
 #----------------------------------------------------------
@@ -125,14 +88,6 @@ countrytext = Label(tk, text='Страны', background="gray22", foreground="#c
 HPtext = Label(tk, text='Автор', background="gray22", foreground="#ccc").place(x=20, y=215)
 Yeartext = Label(tk, text='Год', background="gray22", foreground="#ccc").place(x=130, y=220)
 Pricetext = Label(tk, text='Цена', background="gray22", foreground="#ccc").place(x=240, y=220)
-
-ButtonsCountry('Ger', 280, 30)
-ButtonsCountry('Jap', 280, 55)
-ButtonsCountry('Cze', 280, 80)
-ButtonsCountry('Usa', 280, 105)
-ButtonsCountry('Rus', 280, 130)
-#ButtonsCountry('Bih', 280, 155)
-#ButtonsCountry('Dnk', 280, 180)
 
 #----------------------------------------------------------
 # Создание окн ввода и кнопок "Показать"
