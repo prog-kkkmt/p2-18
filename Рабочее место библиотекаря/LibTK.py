@@ -7,7 +7,6 @@ import sqlite3
 def main():
     
     def getk():
-        global rowtext, mainlist, Yearbox1, Yearbox2
         conn = sqlite3.connect('LibTable')
         curs = conn.cursor()
         *gridAuto, = curs.execute("""SELECT *
@@ -18,12 +17,11 @@ def main():
         mainlist.delete(0, END)
         for i in gridAuto:
             *i, = i
-            rowtext.set(str(i[0]) + ' ' + str(i[1]) + '' + \
-                        str(i[2]) + '   ' + str(i[3]))
+            rowtext.set(str(i[0]) + ' ' + str(i[1]) + ' ' + \
+                        str(i[2]) + ' ' + str(i[3]))
             mainlist.insert(END, rowtext.get())
 
     def geth():
-        global rowtext, mainlist, Pricebox1, Pricebox2
         conn = sqlite3.connect('LibTable')
         curs = conn.cursor()
         *gridAuto, = curs.execute("""SELECT *
@@ -34,12 +32,11 @@ def main():
         mainlist.delete(0, END)
         for i in gridAuto:
             *i, = i
-            rowtext.set(str(i[0]) + ' ' + str(i[1]) + '' + \
-                        str(i[2]) + '   ' + str(i[3]))
+            rowtext.set(str(i[0]) + ' ' + str(i[1]) + ' ' + \
+                        str(i[2]) + ' ' + str(i[3]))
             mainlist.insert(END, rowtext.get())
 
     def getplayer():
-        global rowtext, mainlist, namebox
         conn = sqlite3.connect('LibTable')
         curs = conn.cursor()
         *gridAuto, = curs.execute("""SELECT *
@@ -50,12 +47,12 @@ def main():
         mainlist.delete(0, END)
         for i in gridAuto:
             *i, = i
-            rowtext.set(str(i[0]) + ' ' + str(i[1]) + '' + \
-                        str(i[2]) + '   ' + str(i[3]))
+            rowtext.set(str(i[0]) + ' ' + str(i[1]) + ' ' + \
+                        str(i[2]) + ' ' + str(i[3]))
             mainlist.insert(END, rowtext.get())
+            print(gridAuto)
 
     def getAuthor():
-        global rowtext, mainlist, HPbox1
         conn = sqlite3.connect('LibTable')
         curs = conn.cursor()
         *gridAuto, = curs.execute("""SELECT *
@@ -66,11 +63,9 @@ def main():
         mainlist.delete(0, END)
         for i in gridAuto:
             *i, = i
-            rowtext.set(str(i[0]) + ' ' + str(i[1]) + '' + \
-                        str(i[2]) + '   ' + str(i[3]))
+            rowtext.set(str(i[0]) + ' ' + str(i[1]) + ' ' + \
+                        str(i[2]) + ' ' + str(i[3]))
             mainlist.insert(END, rowtext.get())
-
-
 
 
     def savedBD():
@@ -82,6 +77,7 @@ def main():
             a.append([])
             for j in i.split('  '):
                 a[l].append(j)
+        print(a)
         curs.executemany("INSERT INTO Lib VALUES (?, ?, ?, ?)", a)
         conn.commit()
 
@@ -142,7 +138,7 @@ def main():
     AuthorVar2 = StringVar()
     YearVar3 = StringVar()
     PriceVar4 = StringVar()
-    grid = ['', '', '', '', '', '', '']
+    grid = ['', '', '', '']
 
     #----------------------------------------------------------
     # Создание названий разделов и кнопок
@@ -197,7 +193,7 @@ def main():
     mainlist = Listbox(tk, width=55, height=17, font='Courier 8')
     mainlist.place(x=350, y=30)
 
-    mainlist.bind('<Delete>', remove)
+    #mainlist.bind('<Delete>', remove)
 
     update()
     mainloop()
