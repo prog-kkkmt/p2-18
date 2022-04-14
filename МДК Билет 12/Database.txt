@@ -1,0 +1,60 @@
+CREATE TABLE redactors (
+	id INTEGER NOT NULL, 
+	first_name VARCHAR(255) NOT NULL, 
+	second_name VARCHAR(255) NOT NULL, 
+	PRIMARY KEY (id)
+)
+
+
+CREATE TABLE employer (
+	id INTEGER NOT NULL, 
+	first_name VARCHAR(255) NOT NULL, 
+	second_name VARCHAR(255) NOT NULL, 
+	PRIMARY KEY (id)
+)
+
+
+CREATE TABLE author (
+	id INTEGER NOT NULL, 
+	first_name VARCHAR(255) NOT NULL, 
+	second_name VARCHAR(255) NOT NULL, 
+	PRIMARY KEY (id)
+)
+
+
+CREATE TABLE redactions (
+	id INTEGER NOT NULL, 
+	redactor_id INTEGER, 
+	address VARCHAR(255) NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(redactor_id) REFERENCES redactors (id)
+)
+
+
+CREATE TABLE articles (
+	id INTEGER NOT NULL, 
+	emploee_id INTEGER, 
+	status_id BOOLEAN, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(emploee_id) REFERENCES employer (id)
+)
+
+
+CREATE TABLE redactions_employers (
+	id INTEGER NOT NULL, 
+	emploee_id INTEGER, 
+	redaction_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(emploee_id) REFERENCES employer (id), 
+	FOREIGN KEY(redaction_id) REFERENCES redactions (id)
+)
+
+
+CREATE TABLE author_articles (
+	id INTEGER NOT NULL, 
+	article_id INTEGER, 
+	author_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(article_id) REFERENCES articles (id), 
+	FOREIGN KEY(author_id) REFERENCES author (id)
+)
